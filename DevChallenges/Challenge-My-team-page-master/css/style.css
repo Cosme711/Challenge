@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: auto 0;
+    height: 10rem;
+    width: 100%;
+}
+
+header h1 {
+    margin: auto 0;
+    font-family: 'PT Serif';
+    font-style: normal;
+}
+
+.texteblock {
+    max-width: 30%;
+    margin: auto 1rem auto 0;
+}
+
+.mainblock {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.card {
+    text-align: center;
+}
+
+.card p {
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.card-down {
+    text-align: center;
+}
+
+.card-down p {
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.cardblock {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.cardblock img {
+    display: flex;
+}
+
+.cardblock p {
+    writing-mode: vertical-rl;
+    font-family: 'PT Serif';
+
+}
+
+
+.card-down {
+    padding-top: 2rem;
+}
+
+.mainblock img {
+    width: 238px;
+    height: 341px;
+}
