@@ -141,3 +141,12 @@ header h1 {
         font-size: 0.80rem;
     }
 }
+
+/* FOOTER */ 
+
+footer p{
+    text-align: center;
+    font-family: 'Montserrat';
+    color:#A9A9A9;
+    padding-top: 3rem;
+}
