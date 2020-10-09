@@ -1,0 +1,563 @@
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 18px;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+/* HEADER */
+
+/* header général */
+
+.header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-block {
+    padding-top: 5rem;
+    margin: auto;
+}
+
+.background {
+    height: 25rem;
+    width: 100%;
+    position: absolute;
+    opacity: 0.75;
+}
+
+/* header logo */
+
+.logo {
+    padding-top: 2rem;
+    height: 7rem;
+    width: 7rem;
+    display: flex;
+    margin: auto;
+}
+
+/* header block de texte */
+
+.header-texteblock {
+    padding: 3.3rem 2rem 0 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-texteblock h1{
+    color: #4C545C;
+    text-align: center;
+    margin-bottom: 1.3rem;
+    font-size: 2.5rem;
+}
+
+.header-texteblock p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #9EABB2;
+}
+
+/* header boutton */
+
+.header-button {
+    padding-top: 2rem;
+}
+
+.header-button a{
+    text-decoration: none;
+    color: white;
+    padding: 0.8rem 1.7rem;
+    margin: 0.4rem;
+    border-radius: 40px;
+}
+
+.button1 {
+    background-color: #26BBA4;
+}
+
+.button2 {
+    background-color: #6174FF;
+}
+
+/* header responsive */ 
+
+@media (max-width: 470px) {
+
+    .header-button {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* PARTIE 1 */
+
+/* partie1 général */
+
+.partie1 {
+    margin-top: 9rem;
+}
+
+/* partie1 block de texte n°1 */
+
+.partie1-texteblock1 {   
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.partie1-texteblock1 h2 {
+    color: #4C545C;
+    font-size: 2rem;
+}
+
+.partie1-texteblock1 p {
+    margin-top: 0.8rem;
+    color: #9EABB2;
+}
+
+/* partie1 block principal */
+
+.partie1-block {
+    margin-top: 3rem;
+    width: 75%;
+    display: flex;
+}
+
+.partie1-block img  {
+    width: 60rem;
+    height: 35rem;
+    position: relative;
+    left: -7rem;
+}
+
+/* partie1 block de texte n°2 */
+
+.partie1-texteblock2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5rem 0;
+}
+
+.partie1-texteblock2 h4 {
+    color: #4C545C;
+    font-size: 1.5rem;
+}
+
+.partie1-texteblock2 p {
+    color: #9EABB2;
+    margin: 1rem 0;
+}
+
+/* partie1 responsive */
+
+
+@media (max-width: 1200px) {
+    .partie1-block {
+        width: 95%;
+    }
+}
+
+@media (max-width: 1030px) {
+    .partie1-block img {
+        width: 40rem;
+        height: 30rem;
+        left: -15rem;
+    }
+    .partie1-block {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+    .partie1-texteblock2-2 {
+        margin-top: 2rem;
+    }
+    .partie1-texteblock2-3 {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .partie1-block img {
+        width: 30rem;
+        height: 20rem;
+        left: -7rem;
+    }
+    .partie1-texteblock2 {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .partie1-block img {
+        width: 25rem;
+        height: 17rem;
+        left: -5rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .partie1-block img {
+        width: 20rem;
+        height: 15rem;
+        left: -5rem;
+    }
+}
+
+@media (max-width: 330px) {
+    .partie1-block img {
+        width: 15rem;
+        height: 10rem;
+        left: -4rem;
+    }
+    .partie1-texteblock2 {
+        margin: 2rem 0;
+    }
+}
+
+/* PARTIE 2 */
+
+/* partie2 général */
+
+.partie2 {
+    margin-top: 7rem;
+}
+
+/* partie2 block de texte */ 
+
+.partie2-texteblock {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.partie2-texteblock h2 {
+    color: #4C545C;
+    font-size: 2rem;
+}
+
+.partie2-texteblock p {
+    margin-top: 0.8rem;
+    color: #9EABB2;
+}
+
+/* partie2 image */
+
+.partie2 img {
+    display: flex;
+    margin: auto;
+}
+
+/* partie2 responsive */
+
+@media (max-width: 1000px) {
+    .partie2 img {
+        width: 40rem;
+    }
+
+    .partie2-texteblock {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .partie2 img {
+        width: 30rem;
+    }
+}
+
+@media (max-width: 490px) {
+    .partie2 img {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 330px) {
+    .partie2 img {
+        width: 16rem;
+    }
+}
+
+/* PARTIE 3 */ 
+
+/* partie3 général */ 
+
+.partie3 {
+    margin-top: 7rem;
+}
+
+/* partie3 block de texte */ 
+
+.partie3-texteblock {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 7rem;
+}
+
+.partie3-texteblock h2 {
+    color: #4C545C;
+    font-size: 2rem;
+}
+
+.partie3-texteblock p {
+    margin-top: 0.8rem;
+    color: #9EABB2;
+}
+
+/* partie3 block principal */ 
+
+.partie3-block {
+    display: flex;
+    margin: auto;
+    width: 80%;
+}
+
+.partie3-block-content {
+    width: 50%;
+    text-align: center;
+    padding:  0 2rem;
+}
+
+.partie3-block-content h4 {
+    color: #4C545C;
+    font-size: 1.5rem;
+    margin: 3rem 0 0;
+
+}
+
+.partie3-block-content p {
+    color: #9EABB2;
+    margin: 1.5rem 0 0;
+
+}
+
+/* partie3 responsive */
+
+@media (max-width: 800px) {
+    .partie3-block {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    .partie3-block-content {
+        width: 100%;
+        padding: 0 0 2rem 0;
+    }
+}
+
+/* PARTIE 4 */
+
+/* partie4 général */ 
+
+.partie4 {
+    padding-top: 15rem;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* partie4 responsive */ 
+
+@media (max-width: 950px) {
+    .partie4 {
+        flex-direction: column;
+        
+        width: 40%;
+    }
+    .partie4 img {
+        padding: 2rem 0;
+    }
+}
+
+/* PARTIE 5 */ 
+
+/* partie5 général */
+
+.partie5 {
+    padding: 7rem 0 14rem 0;
+}
+
+/* partie5 block de texte */ 
+
+.partie5-texteblock {
+    padding: 3.3rem 2rem 0 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.partie5-texteblock h2{
+    color: #4C545C;
+    text-align: center;
+    margin-bottom: 1.3rem;
+    font-size: 2.5rem;
+}
+
+.partie5-texteblock p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #9EABB2;
+}
+
+/* partie 5 boutons */ 
+
+.partie5-button {
+    padding-top: 2rem;
+}
+
+.partie5-button a{
+    text-decoration: none;
+    color: white;
+    padding: 0.8rem 1.7rem;
+    margin: 0.4rem;
+    border-radius: 40px;
+}
+
+/* partie 5 responsive */ 
+
+@media (max-width: 470px) {
+    .partie5-button {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* FOOTER */ 
+
+/* footer général */ 
+
+.footer {
+    background-color: #F7F7F7;
+
+}
+
+.footer-content {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    min-height: 9rem;
+}
+
+/* footer logo */ 
+
+.footer-content img {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+/* footet block de texte */ 
+
+.footer-texteblock {
+    width: 90%;
+    min-height: 3.5rem;
+    margin-left: 5rem;
+}
+
+.footer-texteblock-content {
+    width: 70%;
+    min-height: 5rem;
+}
+
+.footer-texteblock-content ul {
+    list-style-type: none;
+    display: inline-flex;
+    width: 100%;
+    
+}
+
+.footer-texteblock-content li {
+    margin-left: 5rem;
+    padding-top: 0.5rem;
+}
+
+.padding-li {
+    padding-bottom: 0.5rem;
+}
+
+.footer-texteblock-content a {
+    text-decoration: none;
+    color: #4C545C;
+}
+
+.footer-texteblock-content a:hover {
+    color: #26BBA4;
+}
+
+/* footer icons */ 
+
+.footer-icon {
+    display: flex;
+}
+
+.footer-icon i{
+    color: #4C545C;
+    font-size: 1.7rem;
+    margin: 0 0.7rem;
+}
+
+.footer-icon i:hover {
+    color: #26BBA4;
+}
+
+/* footer responsive */ 
+
+@media (max-width: 1270px) {
+    .footer-texteblock {
+        margin-left: 2rem;
+    }
+    .footer-texteblock-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 990px) {
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        min-height: 20rem;
+        justify-content: space-around;
+    }
+}
+
+ @media (max-width: 790px) {
+
+    .footer-texteblock-content {
+        margin: auto;
+        padding: 3rem 0;
+    }
+    .footer-texteblock-content ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-texteblock-content li {
+        margin-left: 0;
+        padding: 0.5rem 0;
+    }
+    .padding-li {
+        padding-bottom: 0;
+    }
+    .footer-texteblock {
+        margin-left: 0;
+    }
+    .footer-logo {
+        margin-top: 3.5rem;
+    }
+    .footer-icon {
+        margin-bottom: 3.5rem;
+    }
+ }
