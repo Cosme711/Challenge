@@ -38,10 +38,10 @@
 
 ![screenshot](https://github.com/Cosme711/Challenge/blob/main/DevChallenges/Challenge-My-team-page-master/screenshot.png)
 
-Hi everyone,
-I used only HTML and CSS.
-With this challenge i learn text reveal animation.
-Please do not hesitate to give some feedback for this challenge.
+Hi everyone,  
+I used only HTML and CSS.  
+With this challenge i learn text reveal animation.  
+Please do not hesitate to give some feedback for this challenge.  
 
 ### Built With
 
