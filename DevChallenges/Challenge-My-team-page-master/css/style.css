@@ -150,3 +150,90 @@ footer p{
     color:#A9A9A9;
     padding-top: 3rem;
 }
+
+/* ANIMATION TEXTE */ 
+
+.animationh1 {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 100%;
+}
+  
+.animationh1:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    background-color: #A9A9A9;
+    animation: showText .8s ease;
+}
+  
+.animationh2 {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 100%;
+}
+  
+.animationh2:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    background-color: #A9A9A9;
+    animation: showText .8s ease;
+}
+  
+
+.animationcard {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+  
+.animationcard:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    background-color: #A9A9A9;
+    animation: showText .8s ease;
+}
+
+.animationh1 h1, h2, p, img {
+    opacity: 0;
+    animation: animateText .7s forwards;
+    animation-delay: .5s;
+}
+  
+@keyframes animateText {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+  
+  
+@keyframes showText {
+    0% {
+      width: 0;
+      left: 0;
+    }
+    50% {
+      width: 100%;
+      left: 0;
+    }
+    100% {
+      width: 0;
+      left: 100%;
+    }
+}
