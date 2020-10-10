@@ -36,7 +36,7 @@
 
 ## Overview
 
-![screenshot](https://github.com/Cosme711/Challenge-404NotFound/blob/main/screenshot1.png)
+![screenshot](https://github.com/Cosme711/Challenge/blob/main/DevChallenges/Challenge-404NotFound/screenshot1.png)
 
 Hi everyone, 
 This is my first Challenge. I started coding 1 week ago.
