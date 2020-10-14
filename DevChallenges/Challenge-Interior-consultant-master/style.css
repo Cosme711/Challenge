@@ -8,7 +8,7 @@
 
 body {
     background-color: #181719;
-    width: 95%;
+    width: 90%;
     margin: auto;
     color: white;
 }
@@ -17,6 +17,12 @@ a {
     color: white;
 }
 
+/* 
+font-family: 'Crimson Pro;
+font-family: 'Lora';
+font-family: 'Montserrat';
+*/
+
 /* HEADER */ 
 
 header {
@@ -24,76 +30,98 @@ header {
     justify-content: space-between;
 }
 
-.nav {
-    display: none;
+
+
+.logo {
+    font-family: 'Crimson Pro';
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
 }
 
-.change {
-    display: block;
+
+.logo p {
+    font-size: 1.25rem;
+    border: 1px solid #fff;
+    padding: 0.75rem 0.5rem;
+}
+
+
+
+nav {
+    height: 10vh;
+}
+
+.nav-links {
+    display: flex;
     list-style: none;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.change ul {
-    translate: ;
-}
 
-.change a {
+.nav-links a {
     text-decoration: none;
+    font-family: 'Montserrat';
+    font-size: 1.25rem;
+    padding: 0 2.5rem;
 }
 
+.nav-links li:nth-child(1) {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 875px) {
+
+    .line{
+        width: 30px;
+        height: 3px;
+        background: white;
+        margin: 5px;
+    }
+    nav {
+        position: relative;
+    }
+
+    .hamburger {
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+    }
 
 
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        background-color: #181719;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(100px at 90% -15%);
+        -webkit-clip-path: circle(100px at 90% -15%);
+        transition: all 0.3s ease-out;
+        pointer-events: none;
+    }
+    .nav-links.open {
+        clip-path: circle(1500px at 90% -15%);
+        -webkit-clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+    }
+    body.open {
+        overflow-y: hidden;
+    }
+    .
 
+}
 
 
 /* Button burger */ 
 
-#btn__blockburger {
-    height: 50px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    transition: all .5s ease-in-out;
-}
-
-
-.btn__burger {
-    background: #fff;
-    width: 20px;
-    height: 2px;
-    transition: all .5s ease-in-out;
-}
-
-.btn__burger::before,
-.btn__burger::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background: #fff;
-    transition: all .5s ease-in-out;
-}
-
-.btn__burger::before {
-    transform: translateY(-5px);
-}
-
-.btn__burger::after {
-    transform: translateY(5px);
-}
-
-.change .btn__burger {
-    transform: translateX(-50px);
-    background: transparent;
-}
-
-.change .btn__burger::before {
-    transform: rotate(45deg) translate(35px, -35px);
-}
-
-.change .btn__burger::after {
-    transform: rotate(-45deg) translate(35px, 35px);
-}
 
 /* MAIN */ 
 
