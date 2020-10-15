@@ -30,6 +30,11 @@ header {
     justify-content: space-between;
 }
 
+nav {
+    height: 10vh;
+}
+
+/* LOGO */
 
 
 .logo {
@@ -46,11 +51,7 @@ header {
     padding: 0.75rem 0.5rem;
 }
 
-
-
-nav {
-    height: 10vh;
-}
+/*  NAVIGATION LINKS */
 
 .nav-links {
     display: flex;
@@ -72,20 +73,17 @@ nav {
     font-weight: bold;
 }
 
+/* MEDIA QUERIES FOR NAVIGATION LINKS/HAMBURGER < 875px */ 
+
 @media screen and (max-width: 875px) {
 
-    .line{
-        width: 30px;
-        height: 3px;
-        background: white;
-        margin: 5px;
-    }
-    nav {
-        position: relative;
-    }
+    /* HAMBURGER  */
 
     .hamburger {
+        height: 50px;
         position: absolute;
+        display: flex;
+        align-items: center;
         cursor: pointer;
         right: 5%;
         top: 50%;
@@ -93,6 +91,50 @@ nav {
         z-index: 2;
     }
 
+    .line__hamburger{
+        width: 30px;
+        height: 3px;
+        background: #fff;
+        transition: all .5s ease-in-out;
+    }
+    .line__hamburger::before,
+    .line__hamburger::after {
+        content: '';
+        width: 30px;
+        height: 3px;
+        background: white;
+        position: absolute;
+        transition: all .5s ease-in-out;
+    }
+
+    .line__hamburger::before {
+        transform: translateY(-9px);
+    }
+
+    .line__hamburger::after {
+        transform: translateY(9px);
+    }
+
+    /* HAMBURGER OPEN */ 
+
+    .line__hamburger.open {
+        transform: translateX(-50px);
+        background: transparent;
+    }
+
+    .line__hamburger.open::before {
+        transform: rotate(45deg) translate(35px, -35px);
+    }
+
+    .line__hamburger.open::after {
+        transform: rotate(-45deg) translate(35px, 35px);
+    }
+
+    /* NAVIGATION LINKS OPEN */
+
+    nav {
+        position: relative;
+    }
 
     .nav-links {
         position: fixed;
@@ -102,9 +144,9 @@ nav {
         height: 100vh;
         width: 100%;
         flex-direction: column;
-        clip-path: circle(100px at 90% -15%);
+        clip-path: circle(100px at 90% -15%);               /* Navigation links is hidden by : clip-path */
         -webkit-clip-path: circle(100px at 90% -15%);
-        transition: all 0.3s ease-out;
+        transition: all 0.7s ease-out;
         pointer-events: none;
     }
     .nav-links.open {
@@ -112,18 +154,22 @@ nav {
         -webkit-clip-path: circle(1500px at 90% -15%);
         pointer-events: all;
     }
+
+    /* BODY OPEN */
+
     body.open {
         overflow-y: hidden;
     }
-    .
+    
 
 }
 
-
-/* Button burger */ 
-
-
 /* MAIN */ 
+
+.main {
+    margin-top: 5rem;
+}
+
 
 img {
     width: 100%;
