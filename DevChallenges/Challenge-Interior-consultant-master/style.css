@@ -136,8 +136,6 @@ nav {
         position: relative;
     }
 
-
-
     .nav-links {
         position: fixed;
         right: 0px;
@@ -151,13 +149,13 @@ nav {
         transition: all 0.5s ease-out;
         pointer-events: none;
     }
+
     .nav-links.open {
         clip-path: circle(1500px at 50% -95%);
         -webkit-clip-path: circle(1500px at 50% -95%);
         pointer-events: all;
         padding: 10rem 0;
     }
-
 
     /* BODY OPEN */
 
@@ -174,7 +172,6 @@ nav {
     footer.open {
         display: none;
     }
-
 }
 
 /* MAIN */ 
@@ -198,12 +195,12 @@ img {
 /* MAIN TEXTE */
 
 .main__texte {
+    margin-right: 5rem;
     width: 50%;
     margin: 0 auto;
-    margin-right: 5rem;
 }
 
-@media screen and (max-width:1200px) {  
+@media screen and (max-width:1200px) {  /* RESPONSIVE TEXTE */
     .main__texte{
         margin-right: 0;
         width: 70%;
@@ -244,6 +241,9 @@ img {
     margin-left: 1rem;
 }
 
+/* responsive main texte */ 
+
+
 @media screen and (max-width:900px) {
     .main__texte{
         width: 90%;
@@ -279,13 +279,9 @@ img {
     }
     
     .main__texte a:after {
-        content: '';
         width: 30px;
         height: 25px;
-        color: white;
-        background: no-repeat url("../right-arrow.png");
         background-size: 30px 25px;
-        margin-left: 1rem;
     }
 }
 
@@ -360,8 +356,6 @@ img {
     font-size: 1rem;
 }
 
-
-
 .main__userblock__iduser img {
     width: 70px;
     height: 70px;
@@ -374,6 +368,8 @@ img {
     font-size: 2.5rem;
     padding-bottom: 1rem;
 }
+
+/* responsive user block*/ 
 
 @media screen and (max-width:1700px) {
     .main__userblock p{
@@ -469,7 +465,9 @@ footer {
     font-size: 1.5rem;
 }
 
-@media screen and (max-width: 800px) {
+/* responsive footer texte */
+
+@media screen and (max-width: 800px) { 
     footer {
         font-size: 1rem;
         margin-top: 7rem;
