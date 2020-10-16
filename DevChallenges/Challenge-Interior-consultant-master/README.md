@@ -22,28 +22,29 @@
   </h3>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-
-## Table of Contents
-
-- [Overview](#overview)
-  - [Built With](#built-with)
-- [Features](#features)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
-
 <!-- OVERVIEW -->
 
 ## Overview
 
 ![screenshot](https://github.com/Cosme711/Challenge/blob/main/DevChallenges/Challenge-Interior-consultant-master/screenshot.png)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+You can see my demo here :https://cosme-gressier-interior-consultant.netlify.app/
+  
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+Problem Faced with this project: 
+
+- How to have a responsive texte size ? 
+Solution : font-size: 100% + media queries + rem.
+  
+- How to realize a responsive animate menu ? 
+Solution : Javascript + CSS Animation .
+  
+- How to organize my css and media queries ?
+Solution : Table of contents in my css files.
+
+  
+  
+Fun Challenge! :)
 
 ### Built With
 
