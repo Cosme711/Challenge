@@ -161,6 +161,15 @@ nav {
         overflow-y: hidden;
     }
     
+    /* MAIN OPEN */
+
+    .main.open {
+        display: none;
+    }
+
+    footer.open {
+        display: none;
+    }
 
 }
 
@@ -183,6 +192,7 @@ img {
 
 .main__imgblock {
     position: relative;
+    z-index: 10;
 }
 
 .main__userblock {
