@@ -31,7 +31,7 @@ header {
 }
 
 nav {
-    height: 10vh;
+    height: 15vh;
 }
 
 /* LOGO */
@@ -195,14 +195,14 @@ img {
 /* MAIN TEXTE */
 
 .main__texte {
-    margin-right: 5rem;
+    padding-right: 5rem;
     width: 50%;
     margin: 0 auto;
 }
 
 @media screen and (max-width:1200px) {  /* RESPONSIVE TEXTE */
     .main__texte{
-        margin-right: 0;
+        padding-right: 0;
         width: 70%;
         margin: 0;
     }
@@ -445,11 +445,21 @@ img {
     }
 }
 
+@media screen and (max-width:415px) {
+    .main__userblock__iduser {
+        padding-top: 0;
+    }
+    .main__userblock p {
+        padding-bottom: 0;
+    }
+}
+
 @media screen and (max-width:340px) {
 
     .main__userblock {
         height: 50%;
     }
+
 
 }
 
