@@ -136,6 +136,8 @@ nav {
         position: relative;
     }
 
+
+
     .nav-links {
         position: fixed;
         right: 0px;
@@ -144,16 +146,18 @@ nav {
         height: 100vh;
         width: 100%;
         flex-direction: column;
-        clip-path: circle(100px at 90% -15%);               /* Navigation links is hidden by : clip-path */
-        -webkit-clip-path: circle(100px at 90% -15%);
-        transition: all 0.7s ease-out;
+        clip-path: circle(500px at 50% -95%);               /* Navigation links is hidden by : clip-path */
+        -webkit-clip-path: circle(500px at 50% -95%);
+        transition: all 0.5s ease-out;
         pointer-events: none;
     }
     .nav-links.open {
-        clip-path: circle(1500px at 90% -15%);
-        -webkit-clip-path: circle(1500px at 90% -15%);
+        clip-path: circle(1500px at 50% -95%);
+        -webkit-clip-path: circle(1500px at 50% -95%);
         pointer-events: all;
+        padding: 10rem 0;
     }
+
 
     /* BODY OPEN */
 
