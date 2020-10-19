@@ -1,0 +1,269 @@
+/* GENERAL */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*
+font-family: 'Montserrat';
+font-family: 'Playfair Display';
+*/
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 95%;
+    margin: auto;
+}
+
+@media (min-width: 1000px) {
+    body {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+
+
+
+
+/* HEADER */
+
+.header {
+    margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 700px) {
+    .header {
+        margin-top: 3rem;
+    }
+}
+
+.header h1 {
+    font-size: 2.4rem;
+    font-family: 'Playfair Display';
+    font-weight: 700;
+}
+
+.header__texte {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.header__texte p {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-style: italic;
+    width: 85%;
+    margin: 0 0 2rem 1rem;
+}
+
+@media screen and (min-width: 1000px) {
+    .header__texte p {
+        width: 40%;
+    }
+}
+
+.header__texte img {
+    height: 100%;
+    margin-top: 0.3rem;
+}
+
+.header__img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+
+
+
+
+/* TIME */
+
+.time {
+    margin-top: 2rem;
+}
+
+.time__container__texte {
+    font-family: 'Montserrat';
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+.time__container__texte p:first-child {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #BDBDBD;
+    margin-bottom: 0.25rem;
+}
+
+.time__container {
+    display: flex;
+}
+
+
+.time__container__texte__colors,
+#time__container__texte__colors {
+    color: #F2994A;
+}
+
+.time__container__responsive {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 3rem;
+}
+
+
+
+
+
+/* INGREDIENTS */
+
+/* INGREDIENTS GENERAL */
+
+.ingredients {
+    margin-top: 2.5rem;
+}
+
+.ingredients h2 {
+    font-family: 'Playfair Display';
+    color: #333333;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.ingredients input {
+    min-width: 2.1rem;
+    min-height: 2.1rem;
+}
+
+/*  INGREDIENTS1 */
+
+.ingredients1 {
+    margin-top: 2rem;
+}
+
+.ingredients1 h3 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.ingredients__container {
+    display: flex;
+    margin: 2rem 0;
+}
+
+.ingredients__container p {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+.ingredients__container span {
+    font-weight: 1000;
+}
+
+/* INGREDIENTS2 */
+
+.ingredients2 {
+    margin-top: 5rem;
+}
+
+.ingredients2 h3 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+/* INSTRUCTIONS */
+
+/* INSTRUCTIONS GENERAL */
+
+.instructions {
+    margin-top: 2rem;
+}
+
+.instructions h3 {
+    font-family: 'Playfair Display';
+    font-size: 2.4rem;
+    color: #333;
+}
+
+.instructions__container {
+    display: flex;
+    margin: 4rem 0;
+    font-family: 'Montserrat';
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.instructions__container p{
+    margin-left: 2rem;
+}
+
+.instructions__container span {
+    font-weight: 700;
+}
+
+
+.instructions__container__number {
+    background-color:#F2994A;
+    min-width: 3.6rem;
+    max-width: 3.6rem;
+    min-height: 3.6rem;
+    max-height: 3.6rem;
+    border-radius: 6px;
+    font-size: 2.4rem;
+}
+
+.instructions__container__number p {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Playfair Display';
+    color: white;
+    height: 100%;
+}
+
+
+
+
+
+/* SOURCE */
+
+.source {
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+    color: #BDBDBD;
+}
+
+
+
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    margin: 5rem 0 2rem 0 ;
+    font-family: 'Montserrat';
+    font-size: 1.4rem;
+    color: #A9A9A9;
+
+}
