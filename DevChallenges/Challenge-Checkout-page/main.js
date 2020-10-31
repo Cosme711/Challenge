@@ -16,7 +16,7 @@ addMore1.addEventListener('click', function(event) {
     count1Integer = parseInt(count1String, 10);
     if (count1Integer < 10) {
         count1.innerHTML++;  
-        updateCartTotal();
+        updateCartTotal1();
     }
 });
 
@@ -25,7 +25,7 @@ removeOne1.addEventListener('click', function(event) {
     count1Integer = parseInt(count1String, 10);
     if (count1Integer > 0) {
         count1.innerHTML--;
-        updateCartTotal();
+        updateCartTotal1();
     }
 });
 
@@ -42,7 +42,7 @@ addMore2.addEventListener('click', function(event) {
     count2Integer = parseInt(count2String, 10);
     if (count2Integer < 10) {
         count2.innerHTML++;  
-        updateCartTotal();
+        updateCartTotal2();
     }
 });
 
@@ -51,29 +51,32 @@ removeOne2.addEventListener('click', function(event) {
     count2Integer = parseInt(count2String, 10);
     if (count2Integer > 0) {
         count2.innerHTML--;
-        updateCartTotal();
+        updateCartTotal2();
     }
 });
 
 /* MULTIPLY */
 
-function updateCartTotal() {
+function updateCartTotal1() {
         var priceElement = document.getElementById('price1');
         var quantityElement = document.getElementById('count1');
-
-
         var priceElementString = priceElement.innerText;
         var priceElementInteger = parseInt(priceElementString.replace("$", ""), 10);
-
         var quantityElementString = quantityElement.innerText;
         var quantityElementInteger = parseInt(quantityElementString.replace("p", ""), 10);
-        
-
         var totalPrice = document.getElementById('total__price');
-
-
         totalPrice.innerHTML = "$" + priceElementInteger * quantityElementInteger; 
+}
 
+function updateCartTotal2() {
+    var priceElement = document.getElementById('price2');
+    var quantityElement = document.getElementById('count2');
+    var priceElementString = priceElement.innerText;
+    var priceElementInteger = parseInt(priceElementString.replace("$", ""), 10);
+    var quantityElementString = quantityElement.innerText;
+    var quantityElementInteger = parseInt(quantityElementString.replace("p", ""), 10);
+    var totalPrice = document.getElementById('total__price');
+    totalPrice.innerHTML = "$" + priceElementInteger * quantityElementInteger; 
 }
 
 /*
