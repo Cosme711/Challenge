@@ -1,48 +1,41 @@
-
-/* COUNTER */
-
-const count1 = document.getElementById('count1');
-const count2 = document.getElementById('count2');
-const prix1 = document.getElementById('price1');
-const prix2 = document.getElementById('price2');
-const totalPrice = document.getElementById('total-price');
-
-/*1*/
+/* Counter1 */
 const addMore1 = document.querySelector('.cart__container__rightbox__counter__more1');
 const removeOne1 = document.querySelector('.cart__container__rightbox__counter__less1');
 
-addMore1.addEventListener('click', function(event) {
-    count1String = count1.innerText;
-    count1Integer = parseInt(count1String, 10);
-    if (count1Integer < 10) {
-        count1.innerHTML++;  
-        updateCartTotal1();
+addMore1.addEventListener('click', function(event) { // quand on click sur le +
+    count1String = count1.innerText; // transforme en entier
+    count1Integer = parseInt(count1String, 10); // transforme en entier
+    if (count1Integer < 15) { // si le chiffre du compteur en inférieur a 10
+        count1.innerHTML++;  // rajoute 1 au compteur
+        updateCartTotal1(); // utilise la fonction qui sert a calculer le prix * la quandité
+        publishResult(); // utilise la fonction qui sert a addittionner le prix des éléments
     }
 });
 
-removeOne1.addEventListener('click', function(event) {
-    count1String = count1.innerText;
-    count1Integer = parseInt(count1String, 10);
-    if (count1Integer > 0) {
-        count1.innerHTML--;
-        updateCartTotal1();
+removeOne1.addEventListener('click', function(event) { // quand on click sur le +
+    count1String = count1.innerText; // transforme en entier
+    count1Integer = parseInt(count1String, 10); // transforme en entier
+    if (count1Integer > 0) { // si le chiffre du compteur en superieur à 0
+        count1.innerHTML--; // retire 1 du compteur
+        updateCartTotal1(); // utilise la fonction qui sert a calculer le prix * la quandité
+        publishResult(); // utilise la fonction qui sert a addittionner le prix des éléments
     }
 });
 
 
 
-/*2*/
+/* Counter2 */
 const addMore2 = document.querySelector('.cart__container__rightbox__counter__more2');
 const removeOne2 = document.querySelector('.cart__container__rightbox__counter__less2');
-var count2Multiply = 0;
 
 
 addMore2.addEventListener('click', function(event) {
     count2String = count2.innerText;
     count2Integer = parseInt(count2String, 10);
-    if (count2Integer < 10) {
+    if (count2Integer < 15) {
         count2.innerHTML++;  
         updateCartTotal2();
+        publishResult();
     }
 });
 
@@ -52,46 +45,55 @@ removeOne2.addEventListener('click', function(event) {
     if (count2Integer > 0) {
         count2.innerHTML--;
         updateCartTotal2();
+        publishResult();
     }
 });
 
-/* MULTIPLY */
 
-function updateCartTotal1() {
-        var priceElement = document.getElementById('price1');
-        var quantityElement = document.getElementById('count1');
-        var priceElementString = priceElement.innerText;
-        var priceElementInteger = parseInt(priceElementString.replace("$", ""), 10);
-        var quantityElementString = quantityElement.innerText;
-        var quantityElementInteger = parseInt(quantityElementString.replace("p", ""), 10);
-        var totalPrice = document.getElementById('total__price');
-        totalPrice.innerHTML = "$" + priceElementInteger * quantityElementInteger; 
+
+/* Multiply Price * Quantity */
+
+async function updateCartTotal1() { // fonction qui calcule le prix total de ce produit (prix * quantité)
+        var priceElement1 = document.getElementById('price1');
+        var quantityElement1 = document.getElementById('count1');
+        var priceElement1String = priceElement1.innerText; // Récupere la chaine de caractere
+        var priceElement1Integer = parseInt(priceElement1String.replace("$", ""), 10); // convertie en entier
+        var quantityElement1String = quantityElement1.innerText; // Récupere la chaine de caractere
+        var quantityElement1Integer = parseInt(quantityElement1String.replace("p", ""), 10); // convertie en entier
+        var totalPrice1 = document.getElementById('total__price1');
+        totalPrice1 = priceElement1Integer * quantityElement1Integer; // prix * quantité
+        return totalPrice1; // return le prix total de cette élément 
 }
 
-function updateCartTotal2() {
-    var priceElement = document.getElementById('price2');
-    var quantityElement = document.getElementById('count2');
-    var priceElementString = priceElement.innerText;
-    var priceElementInteger = parseInt(priceElementString.replace("$", ""), 10);
-    var quantityElementString = quantityElement.innerText;
-    var quantityElementInteger = parseInt(quantityElementString.replace("p", ""), 10);
-    var totalPrice = document.getElementById('total__price');
-    totalPrice.innerHTML = "$" + priceElementInteger * quantityElementInteger; 
+async function updateCartTotal2() {
+    var priceElement2 = document.getElementById('price2');
+    var quantityElement2 = document.getElementById('count2');
+    var priceElement2String = priceElement2.innerText;
+    var priceElement2Integer = parseInt(priceElement2String.replace("$", ""), 10);
+    var quantityElement2String = quantityElement2.innerText;
+    var quantityElement2Integer = parseInt(quantityElement2String.replace("p", ""), 10);
+    var totalPrice2 = document.getElementById('total__price2');
+    totalPrice2 = priceElement2Integer * quantityElement2Integer;
+    return totalPrice2;
 }
 
-/*
+/* Addition price of elements */
 
-var prix1String = prix1.innerText;
-var prix1Integer = parseInt(prix1String.replace("$",""),10);
+async function additionElement() { // fonction qui fais la somme des différent produit
+    const value1 = await updateCartTotal1(); 
+    const value2 = await updateCartTotal2();
+    return value1 + value2;
+}
 
-var prix2String = prix2.innerText;
-var prix2Integer = parseInt(prix2String.replace("$",""),10);
+/* Publish Result */
 
+async function publishResult() { // fonction qui publie la somme total de tout les éléments
+    totalPriceContainer = additionElement().then(function(data) {  // récupère la promesse (return) de additionElement
+    const totalPrice = document.getElementById('total__price__global');
+    totalPrice.textContent = "$" + data; // et publie le résultat 
+});
+}
 
-
-totalPriceResult = prix1Integer * count1Multiply + prix2Integer * count2Multiply;
-totalPrice.innerText = "$" + totalPriceResult;
-*/
 
 /*
 const body = document.querySelector('body');
