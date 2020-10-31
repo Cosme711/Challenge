@@ -1,23 +1,22 @@
-/* TOTAL */
+
+/* COUNTER */
+
 const count1 = document.getElementById('count1');
 const count2 = document.getElementById('count2');
 const prix1 = document.getElementById('price1');
 const prix2 = document.getElementById('price2');
 const totalPrice = document.getElementById('total-price');
 
-/* COUNTER */
-
 /*1*/
 const addMore1 = document.querySelector('.cart__container__rightbox__counter__more1');
 const removeOne1 = document.querySelector('.cart__container__rightbox__counter__less1');
-var count1Multiply = 0;
 
 addMore1.addEventListener('click', function(event) {
     count1String = count1.innerText;
     count1Integer = parseInt(count1String, 10);
     if (count1Integer < 10) {
         count1.innerHTML++;  
-        return count1Multiply++;
+        updateCartTotal();
     }
 });
 
@@ -26,7 +25,7 @@ removeOne1.addEventListener('click', function(event) {
     count1Integer = parseInt(count1String, 10);
     if (count1Integer > 0) {
         count1.innerHTML--;
-        return count1Multiply--;
+        updateCartTotal();
     }
 });
 
@@ -43,7 +42,7 @@ addMore2.addEventListener('click', function(event) {
     count2Integer = parseInt(count2String, 10);
     if (count2Integer < 10) {
         count2.innerHTML++;  
-        return count2Multiply++;
+        updateCartTotal();
     }
 });
 
@@ -52,11 +51,32 @@ removeOne2.addEventListener('click', function(event) {
     count2Integer = parseInt(count2String, 10);
     if (count2Integer > 0) {
         count2.innerHTML--;
-        return count2Multiply--;
+        updateCartTotal();
     }
 });
 
 /* MULTIPLY */
+
+function updateCartTotal() {
+        var priceElement = document.getElementById('price1');
+        var quantityElement = document.getElementById('count1');
+
+
+        var priceElementString = priceElement.innerText;
+        var priceElementInteger = parseInt(priceElementString.replace("$", ""), 10);
+
+        var quantityElementString = quantityElement.innerText;
+        var quantityElementInteger = parseInt(quantityElementString.replace("p", ""), 10);
+        
+
+        var totalPrice = document.getElementById('total__price');
+
+
+        totalPrice.innerHTML = "$" + priceElementInteger * quantityElementInteger; 
+
+}
+
+/*
 
 var prix1String = prix1.innerText;
 var prix1Integer = parseInt(prix1String.replace("$",""),10);
@@ -68,17 +88,7 @@ var prix2Integer = parseInt(prix2String.replace("$",""),10);
 
 totalPriceResult = prix1Integer * count1Multiply + prix2Integer * count2Multiply;
 totalPrice.innerText = "$" + totalPriceResult;
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 /*
 const body = document.querySelector('body');
