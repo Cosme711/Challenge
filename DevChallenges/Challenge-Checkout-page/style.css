@@ -10,28 +10,42 @@ html {
     font-size: 62.5%;
 }
 
-@media screen and (max-width: 600px) {
-    html {
-        font-size: 50%;
-    }
-}
 
-@media screen and (max-width: 400px) {
-    html {
-        font-size: 40%;
-    }
-}
-
-body {
+.main {
      width: 95%;
      margin: 0 auto;
 }
 
+@media screen and (min-width: 900px) {
+    .main {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+    .cart {
+        height: 25%;
+        margin-left: 2rem;
+    }
+    .information {
+        margin-right: 2rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .cart {
+        margin-left: 6rem;
+    }
+    .information {
+        margin-right: 6rem;
+    }
+}
+
 h1 {
     font-weight: 600;
-    font-size: 2.4rem;
+    font-size: 2.75rem;
     color: #4E5150;
     margin-top: 3rem;
+    margin-left: 2rem;
 }
 
 /* CART */
@@ -39,20 +53,19 @@ h1 {
 .cart {
     margin-top: 2rem;
     background-color: #F2F2F2;
-    width: 100%;
-    height: 100%;
     border-radius: 12px;
 }
+
 
 .cart__container {
     display: flex;
     padding: 4rem;
-    height: 100%;
 }
 
 @media screen and (max-width: 600px) {
     .cart__container {
         min-height: 200px;
+        padding: 2rem;
     }
 }
 
@@ -64,8 +77,7 @@ h1 {
 
 @media screen and (max-width: 550px) {
     .cart__container img {
-        width: 120px;
-        height: auto;
+        width: 140px;
     }
 }
 
@@ -87,6 +99,7 @@ h1 {
         font-size: 2rem;
     }
 }
+
 
 .cart__container__rightbox__price {
     display: flex;
@@ -122,8 +135,12 @@ h1 {
         padding: 1.5rem;
     }
 }
-
-
+@media screen and (max-width: 450px) {
+    .cart__container__rightbox__counter {
+        width: 10rem;
+        padding: 1rem;
+    }
+}
 
 .cart__container__rightbox__counter__less1 {
     background-color: #E0E0E0;
@@ -223,6 +240,7 @@ h1 {
 
 /* Information */
 
+
 h2 {
     color: #333333;
     margin-top: 4rem;
@@ -242,21 +260,22 @@ h2 {
 
 .input__box__container {
     display: flex;
-    padding: 1.5rem 1rem;
     border: 1px solid #828282;
     border-radius: 12px;
 }
 
 .input__box__container input {
     border: none;
-    margin-left: 1.5rem;
-    width: auto;
+    width: 100%;
+    padding: auto 0;
+    margin: auto;
 }
 
 .input__box__container span {
     color: #828282;
     font-size: 2.25rem;
     margin-left: 0.5rem;
+    padding: 1.5rem 1rem;
 }
 
 .input__box__last {
@@ -273,6 +292,7 @@ select {
     border: none;
     margin-left: 1rem;
     color: #828282;
+    width: 100%;
 }
 
 
@@ -304,5 +324,19 @@ select {
     text-decoration: none;
     color: white;
     background-color: #F2994A;
-    padding: 2rem 4rem;
+    padding: 2rem 7rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 12px;
+}
+
+footer p {
+    font-size: 1.7rem;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    color: #A9A9A9;
+    font-weight: 600;
+    line-height: 17px;
 }
