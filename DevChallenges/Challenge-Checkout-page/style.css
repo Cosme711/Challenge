@@ -250,6 +250,7 @@ h2 {
 .input__box__container input {
     border: none;
     margin-left: 1.5rem;
+    width: auto;
 }
 
 .input__box__container span {
@@ -259,10 +260,49 @@ h2 {
 }
 
 .input__box__last {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
-.input__box__last__divspace {
-    width: 4rem;
+.input__box__last input{
+    width: 50%;
+}
+
+select {
+    border: none;
+    margin-left: 1rem;
+    color: #828282;
+}
+
+
+
+.save__information {
+    margin-top: 2rem; 
+    display: flex;
+    align-items: center;
+}
+
+.save__information input {
+    transform: scale(1.5);
+}
+
+.save__information p {
+    margin-left: 1rem;
+    color: #4F4F4F;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.button {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+    background-color: #F2994A;
+    padding: 2rem 4rem;
 }
