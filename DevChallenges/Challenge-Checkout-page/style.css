@@ -10,13 +10,27 @@ html {
     font-size: 62.5%;
 }
 
-
-.main {
-     width: 95%;
-     margin: 0 auto;
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 50%;
+    }
 }
 
-@media screen and (min-width: 900px) {
+header h1 {
+    font-weight: 600;
+    font-size: 4rem;
+    color: #4E5150;
+    margin-top: 2rem;
+    margin-left:5rem;
+}
+
+.main {
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+
+@media screen and (min-width: 930px) {
     .main {
         display: flex;
         flex-direction: row-reverse;
@@ -31,22 +45,15 @@ html {
     }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1400px) {
     .cart {
-        margin-left: 6rem;
+        margin-left: 5rem;
     }
     .information {
-        margin-right: 6rem;
+        margin-right: 5rem;
     }
 }
 
-h1 {
-    font-weight: 600;
-    font-size: 2.75rem;
-    color: #4E5150;
-    margin-top: 3rem;
-    margin-left: 2rem;
-}
 
 /* CART */
 
@@ -56,16 +63,26 @@ h1 {
     border-radius: 12px;
 }
 
-
 .cart__container {
     display: flex;
     padding: 4rem;
 }
 
+@media screen and (max-width: 1200px) {
+    .cart__container img {
+        width: 120px;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .cart__container {
-        min-height: 200px;
         padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cart__container img {
+        min-width: 90px;
     }
 }
 
@@ -73,12 +90,6 @@ h1 {
     width: 30%;
     border-radius: 12px;
     height: auto;
-}
-
-@media screen and (max-width: 550px) {
-    .cart__container img {
-        width: 140px;
-    }
 }
 
 .cart__container__rightbox {
@@ -92,6 +103,8 @@ h1 {
     color: #4E5150;
     font-size: 2.5rem;
     font-weight: 600;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 @media screen and (max-width: 550px) {
@@ -99,7 +112,6 @@ h1 {
         font-size: 2rem;
     }
 }
-
 
 .cart__container__rightbox__price {
     display: flex;
@@ -109,6 +121,13 @@ h1 {
 .cart__container__rightbox__price p {
     color: #F2994A;
     font-size: 2rem;
+}
+
+@media screen and (max-width: 550px) {
+    .cart__container__rightbox__price p {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
 }
 
 .cart__container__rightbox__price p:nth-child(2) {
@@ -133,12 +152,6 @@ h1 {
     .cart__container__rightbox__counter {
         width: 15rem;
         padding: 1.5rem;
-    }
-}
-@media screen and (max-width: 450px) {
-    .cart__container__rightbox__counter {
-        width: 10rem;
-        padding: 1rem;
     }
 }
 
@@ -178,22 +191,22 @@ h1 {
     position: relative;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
     .cart__container__rightbox__counter__less1 {
         width: 20px;
-        height: 20px;
+        height: 22px;
     }
     .cart__container__rightbox__counter__less2 {
         width: 20px;
-        height: 20px;
+        height: 22px;
     }
     .cart__container__rightbox__counter__more1 {
         width: 20px;
-        height: 20px;
+        height: 22px;
     }    
     .cart__container__rightbox__counter__more2 {
         width: 20px;
-        height: 20px;
+        height: 22px;
     }
 }
 
@@ -238,8 +251,8 @@ h1 {
     padding-top: 2rem;
 }
 
-/* Information */
 
+/* IINFORMATIONS */
 
 h2 {
     color: #333333;
@@ -260,22 +273,32 @@ h2 {
 
 .input__box__container {
     display: flex;
-    border: 1px solid #828282;
-    border-radius: 12px;
 }
 
 .input__box__container input {
-    border: none;
+    color:#828282;
     width: 100%;
-    padding: auto 0;
-    margin: auto;
+    padding: 1.5rem 1rem 1.5rem 4.5rem;
+    border: 1px solid #828282;
+    border-radius: 8px;
+    position: relative;
 }
 
 .input__box__container span {
     color: #828282;
     font-size: 2.25rem;
-    margin-left: 0.5rem;
-    padding: 1.5rem 1rem;
+    margin-top: 1.20rem;
+    margin-left: 1rem;
+    position: absolute;
+    z-index: 2;
+}
+
+.input__box__container select {
+    width: 100%;
+    padding: 1.5rem 1rem 1.5rem 4.5rem;
+    border: 1px solid #828282;
+    border-radius: 8px;
+    position: relative;
 }
 
 .input__box__last {
@@ -284,18 +307,9 @@ h2 {
     gap: 15px;
 }
 
-.input__box__last input{
-    width: 50%;
+.input__box select {
+    color:#828282;
 }
-
-select {
-    border: none;
-    margin-left: 1rem;
-    color: #828282;
-    width: 100%;
-}
-
-
 
 .save__information {
     margin-top: 2rem; 
@@ -305,6 +319,7 @@ select {
 
 .save__information input {
     transform: scale(1.5);
+    margin-left: 0.4rem;
 }
 
 .save__information p {
@@ -330,6 +345,9 @@ select {
     line-height: 20px;
     border-radius: 12px;
 }
+
+
+/* FOOTER */
 
 footer p {
     font-size: 1.7rem;

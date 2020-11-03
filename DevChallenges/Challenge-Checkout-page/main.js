@@ -20,22 +20,22 @@ removeOne2.addEventListener('click', counter2Less);
 
 //Counter1
 function counter1More() {
-    count1String = count1.innerText; // transforme en entier
-    count1Integer = parseInt(count1String, 10); // transforme en entier
-    if (count1Integer < 15) { // si le chiffre du compteur en inférieur a 10
-        count1.innerHTML++;  // rajoute 1 au compteur
-        updateCartTotal1(); // utilise la fonction qui sert a calculer le prix * la quandité
-        publishResult(); // utilise la fonction qui sert a addittionner le prix des éléments
+    count1String = count1.innerText;
+    count1Integer = parseInt(count1String, 10);
+    if (count1Integer < 15) {
+        count1.innerHTML++;
+        updateCartTotal1();
+        publishResult();
     }
 }
 
 function counter1Less() {
-    count1String = count1.innerText; // transforme en entier
-    count1Integer = parseInt(count1String, 10); // transforme en entier
-    if (count1Integer > 0) { // si le chiffre du compteur en superieur à 0
-        count1.innerHTML--; // retire 1 du compteur
-        updateCartTotal1(); // utilise la fonction qui sert a calculer le prix * la quandité
-        publishResult(); // utilise la fonction qui sert a addittionner le prix des éléments
+    count1String = count1.innerText;
+    count1Integer = parseInt(count1String, 10);
+    if (count1Integer > 0) {
+        count1.innerHTML--;
+        updateCartTotal1();
+        publishResult();
     }
 }
 
@@ -63,16 +63,16 @@ function counter2Less() {
 
 
 //Multiply Price * Quantity
-async function updateCartTotal1() { // fonction qui calcule le prix total de ce produit (prix * quantité)
+async function updateCartTotal1() {
         var priceElement1 = document.getElementById('price1');
         var quantityElement1 = document.getElementById('count1');
-        var priceElement1String = priceElement1.innerText; // Récupere la chaine de caractere
-        var priceElement1Integer = parseInt(priceElement1String.replace("$", ""), 10); // convertie en entier
-        var quantityElement1String = quantityElement1.innerText; // Récupere la chaine de caractere
-        var quantityElement1Integer = parseInt(quantityElement1String.replace("p", ""), 10); // convertie en entier
+        var priceElement1String = priceElement1.innerText;
+        var priceElement1Integer = parseInt(priceElement1String.replace("$", ""), 10);
+        var quantityElement1String = quantityElement1.innerText;
+        var quantityElement1Integer = parseInt(quantityElement1String.replace("p", ""), 10);
         var totalPrice1 = document.getElementById('total__price1');
-        totalPrice1 = priceElement1Integer * quantityElement1Integer; // prix * quantité
-        return totalPrice1; // return le prix total de cette élément 
+        totalPrice1 = priceElement1Integer * quantityElement1Integer;
+        return totalPrice1;
 }
 
 async function updateCartTotal2() {
@@ -88,16 +88,16 @@ async function updateCartTotal2() {
 }
 
 //Addition price of elements
-async function additionElement() { // fonction qui fais la somme des différent produit
+async function additionElement() {
     const value1 = await updateCartTotal1(); 
     const value2 = await updateCartTotal2();
     return value1 + value2;
 }
 
 //Publish Result
-async function publishResult() { // fonction qui publie la somme total de tout les éléments
-    totalPriceContainer = additionElement().then(function(data) {  // récupère la promesse (return) de additionElement
+async function publishResult() {
+    totalPriceContainer = additionElement().then(function(data) {
     const totalPrice = document.getElementById('total__price__global');
-    totalPrice.textContent = "$" + data; // et publie le résultat 
+    totalPrice.textContent = "$" + data;
 });
 }
