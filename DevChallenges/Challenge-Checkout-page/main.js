@@ -24,7 +24,7 @@ function counter1More() {
     count1Integer = parseInt(count1String, 10);
     if (count1Integer < 15) {
         count1.innerHTML++;
-        updateCartTotal1();
+        multiplyPriceQuantity1();
         publishResult();
     }
 }
@@ -34,7 +34,7 @@ function counter1Less() {
     count1Integer = parseInt(count1String, 10);
     if (count1Integer > 0) {
         count1.innerHTML--;
-        updateCartTotal1();
+        multiplyPriceQuantity1();
         publishResult();
     }
 }
@@ -45,7 +45,7 @@ function counter2More() {
     count2Integer = parseInt(count2String, 10);
     if (count2Integer < 15) {
         count2.innerHTML++;  
-        updateCartTotal2();
+        multiplyPriceQuantity2();
         publishResult();
     }
 }
@@ -55,7 +55,7 @@ function counter2Less() {
     count2Integer = parseInt(count2String, 10);
     if (count2Integer > 0) {
         count2.innerHTML--;
-        updateCartTotal2();
+        multiplyPriceQuantity2();
         publishResult();
     }
 }
@@ -63,7 +63,7 @@ function counter2Less() {
 
 
 //Multiply Price * Quantity
-async function updateCartTotal1() {
+async function multiplyPriceQuantity1() {
         var priceElement1 = document.getElementById('price1');
         var quantityElement1 = document.getElementById('count1');
         var priceElement1String = priceElement1.innerText;
@@ -75,7 +75,7 @@ async function updateCartTotal1() {
         return totalPrice1;
 }
 
-async function updateCartTotal2() {
+async function multiplyPriceQuantity2() {
     var priceElement2 = document.getElementById('price2');
     var quantityElement2 = document.getElementById('count2');
     var priceElement2String = priceElement2.innerText;
@@ -89,8 +89,8 @@ async function updateCartTotal2() {
 
 //Addition price of elements
 async function additionElement() {
-    const value1 = await updateCartTotal1(); 
-    const value2 = await updateCartTotal2();
+    const value1 = await multiplyPriceQuantity1(); 
+    const value2 = await multiplyPriceQuantity2();
     return value1 + value2;
 }
 
