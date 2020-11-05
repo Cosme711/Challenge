@@ -46,13 +46,15 @@ function addTodo(event) {
     checkListener.addEventListener('input', function() {
         todoDiv.classList.toggle('completed');
     });
-    //Delete Button 
-    const deleteListener = newTodo.querySelector('span');
-    deleteListener.addEventListener('click', function(){
-      const todo = deleteListener.parentElement;
-      todo.remove();
-      removeLocalTodos(todo);
-    });
+  //Delete Button 
+  const deleteListener = newTodo.querySelector('span');
+  deleteListener.addEventListener('click', function(event){
+    const item = event.target;
+    const todo = item.parentElement;
+    removeLocalTodos(todo);
+    const todoGlobal = deleteListener.parentElement;
+    todoGlobal.remove();
+  });
 }
 
 
@@ -125,10 +127,12 @@ function getTodos(){
   });
   //Delete Button 
   const deleteListener = newTodo.querySelector('span');
-  deleteListener.addEventListener('click', function(){
+  deleteListener.addEventListener('click', function(event){
+    const item = event.target;
+    const todo = item.parentElement;
+    removeLocalTodos(todo);
     const todoGlobal = deleteListener.parentElement;
     todoGlobal.remove();
-    removeLocalTodos(todo);
   });
   })
 }
@@ -153,9 +157,8 @@ function removeLocalTodos(todo){
     } else {
       todos = JSON.parse(localStorage.getItem("todos"));
     }
-  const todoIndex = todo.children[0].innerText;  
+  const todoIndex = todo.children[0].innerHTML;  
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
-
 
