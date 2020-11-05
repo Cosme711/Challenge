@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+main {
+    width: 50%;
+    margin: auto;
+    padding-top: 3rem;
+}
+
+.nav__container {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.nav__container a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    height: 2.5rem;
+    font-weight: 600;
+}
+
+.nav__container a:hover {
+    border-bottom: 5px solid #2F80ED;
+}
+
+.todo__input__container {
+    margin-top: 1.5rem;
+    display: flex;
+}
+
+.todo__input__container input {
+    width: 90%;
+    height: 50px;
+    border: 1px solid #BDBDBD;
+    border-radius: 12px;
+    outline: none;
+    padding-left: 25px;
+}
+
+
+.todo__input__container button {
+    width: 120px;
+    margin-left: 20px;
+    background: #2F80ED;
+    border: none;
+    color: #FFFFFF;
+    box-shadow: 0px 2px 6px rgba(127, 177, 243, 0.4);
+    border-radius: 12px;
+}
+
+.todo__container {
+    margin-top: 1.5rem;
+}
+
+.todo {
+    margin: 0.5rem;
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+    list-style: none;
+}
+
+.todo input {
+    width: 25px;
+    height: 25px;
+    border: 0.1mm solid black;
+    border-radius: 5px;
+}
+
+.todo__li {
+    font-family: 'Montserrat';
+    display: grid;
+    grid-template-columns: 25px 1fr 25px;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+}
+
+.todo__li span {
+    color: #BDBDBD;
+    cursor: pointer;
+}
+
+
+.todo__value {
+    font-size: 200px;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+
+/*
+.delete__button {
+    width: 10rem;
+    height: 2rem;
+    padding: 2rem;
+    background-color: red;
+}
+*/
