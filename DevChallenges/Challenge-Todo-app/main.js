@@ -8,17 +8,29 @@ const filterCompleted = document.querySelector('#completed');
 const filterActive = document.querySelector('#active');
 const filterAll = document.querySelector('#all');
 const main = document.querySelector("main");
+let darkSwitcher = document.querySelector('#dark-mode');
 
 
 
 //Event Listeners
 
 document.addEventListener('DOMContentLoaded', getTodos);
+document.addEventListener('DOMContentLoaded', preferableDarkMode);
 todoButton.addEventListener('click', addTodo);
 deleteAllInput.addEventListener('click', deleteAll);
 filterCompleted.addEventListener('click', filterTodoCompleted);
 filterActive.addEventListener('click', filterTodoActive);
 filterAll.addEventListener('click', filterTodoAll);
+
+darkSwitcher.addEventListener('change', function(event) {
+  if(event.target.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('mode', 'dark');
+  } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.removeItem('mode');
+  }
+})
 
 
 //Functions 
@@ -167,4 +179,11 @@ function getTodos(){ //get todo to local storage
     todoGlobal.remove();
     });
   })
-} 
+}
+
+function preferableDarkMode() { //Get user preferable mode
+  if (localStorage.getItem('mode') === 'dark') {
+    darkSwitcher.checked = true;
+    document.body.classList.add('dark-mode');
+  };
+}
