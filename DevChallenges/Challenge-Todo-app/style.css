@@ -66,12 +66,14 @@ main {
     border-radius: 12px;
 }
 
+
+
 .todo__container {
-    margin-top: 1.5rem;
+    margin-top: 2rem
 }
 
 .todo {
-    margin: 0.5rem;
+    margin: 1rem 0;
     color: black;
     font-size: 1.5rem;
     display: flex;
@@ -86,18 +88,24 @@ main {
     height: 25px;
     border: 0.1mm solid black;
     border-radius: 5px;
+    margin: auto;
 }
 
 .todo__li {
     font-family: 'Montserrat';
-    display: grid;
-    grid-template-columns: 25px 1fr 25px;
+    margin-left: 1rem;
+
     width: 100%;
-    align-items: center;
-    gap: 1rem;
 }
 
-.todo__li span {
+.trash-btn {
+    border: none;
+    background: none;
+    width: 30px;
+    height: 30px;
+}
+
+.todo button span {
     color: #BDBDBD;
     cursor: pointer;
 }
