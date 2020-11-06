@@ -9,6 +9,7 @@ const filterActive = document.querySelector('#active');
 const filterAll = document.querySelector('#all');
 const main = document.querySelector("main");
 let darkSwitcher = document.querySelector('#dark-mode');
+const inputContainer = document.querySelector('.todo__input__container');
 
 
 
@@ -21,16 +22,7 @@ deleteAllInput.addEventListener('click', deleteAll);
 filterCompleted.addEventListener('click', filterTodoCompleted);
 filterActive.addEventListener('click', filterTodoActive);
 filterAll.addEventListener('click', filterTodoAll);
-
-darkSwitcher.addEventListener('change', function(event) {
-  if(event.target.checked) {
-      document.body.classList.add('dark-mode');
-      localStorage.setItem('mode', 'dark');
-  } else {
-      document.body.classList.remove('dark-mode');
-      localStorage.removeItem('mode');
-  }
-})
+darkSwitcher.addEventListener('change', darkMode);
 
 
 //Functions 
@@ -106,15 +98,19 @@ function removeLocalTodos(todo){ //Remove a Todo to the local storage
 
 
 function filterTodoAll() { //Filter function for all todo
+  newDeleteButtonAll.style.display = "none";
   event.preventDefault();
+  inputContainer.style.display = "flex";
   const todos = todoList.childNodes;
   todos.forEach(function(todo) {
       todo.style.display = "flex";
-  }) 
+  })
 }
 
 function filterTodoActive() { //Filter function for active todo
+  newDeleteButtonAll.style.display = "none";
   event.preventDefault();
+  inputContainer.style.display = "flex";
   const todos = todoList.childNodes;
   todos.forEach(function(todo) {
         var todoChildrenLi = todo.querySelector('li');
@@ -128,6 +124,7 @@ function filterTodoActive() { //Filter function for active todo
 
 function filterTodoCompleted() { //Filter function for completed todo
   event.preventDefault();
+  inputContainer.style.display = "none";
   const todos = todoList.childNodes;
   todos.forEach(function(todo) {
         var todoChildrenLi = todo.querySelector('li');
@@ -137,6 +134,12 @@ function filterTodoCompleted() { //Filter function for completed todo
             todo.style.display = "none";
         }
     });
+  if (!document.querySelector('.delete__button__all')) {
+    var newDeleteButtonAll = document.createElement('div');
+    main.appendChild(newDeleteButtonAll);
+    newDeleteButtonAll.classList.add('delete__button__all');
+    newDeleteButtonAll.innerHTML = "<span class='material-icons'>delete_outline</span>" + "<a>delete all</a>";
+  }
 }
 
 function getTodos(){ //get todo to local storage
@@ -179,6 +182,16 @@ function getTodos(){ //get todo to local storage
     todoGlobal.remove();
     });
   })
+}
+
+function darkMode() {
+  if(event.target.checked) {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('mode', 'dark');
+} else {
+    document.body.classList.remove('dark-mode');
+    localStorage.removeItem('mode');
+}
 }
 
 function preferableDarkMode() { //Get user preferable mode
