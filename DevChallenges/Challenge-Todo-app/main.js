@@ -82,6 +82,7 @@ function saveLocalTodos(todo) { // Save in localStorage a Todo
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
+
 function removeLocalTodos(todo){ //Remove a Todo to the local storage
   let todos;
   if (localStorage.getItem("todos") === null) {
@@ -108,7 +109,7 @@ function filterTodoAll() { //Filter function for all todo
 }
 
 function filterTodoActive() { //Filter function for active todo
-  newDeleteButtonAll.style.display = "none";
+  //newDeleteButtonAll.style.display = "none";
   event.preventDefault();
   inputContainer.style.display = "flex";
   const todos = todoList.childNodes;
