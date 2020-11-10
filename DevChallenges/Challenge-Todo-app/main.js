@@ -27,12 +27,9 @@ darkSwitcher.addEventListener('change', darkMode);
 //Functions 
 
 function addTodo(e) { 
-    e.preventDefault(); //Disable Prevent Default
-    let todoText = todoInput.value;
+  e.preventDefault(); //Disable Prevent Default
 
-
-    if (todoText) {
-
+  if (todoInput.value) {
     //Create Div
     var newDiv = document.createElement("div");;
     newDiv.classList.add('todo');
@@ -67,124 +64,110 @@ function addTodo(e) {
       updateLS();
     });
     updateLS();
-    }
+  }
 }
 
 function getTodos() {
   let todos;
   if (localStorage.getItem("todos") === null) {
-      todos = [];
-    } else {
-      todos = JSON.parse(localStorage.getItem("todos"));
-    }
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
   todos.forEach(function(todo){ 
-        //Create Div
-        var newDiv = document.createElement("div");;
-        newDiv.classList.add('todo');
-        //Create Input
-        var newInput = document.createElement("div");
-        newInput.innerHTML = '<input class="complete-btn" type="checkbox"></input>';
-        newDiv.appendChild(newInput);
-        //Create li
-        const newLi = document.createElement("li");
-        newLi.innerText = todo.text;
-        newLi.classList.add('todo__li');
-        if (todo && todo.completed) {
-          newLi.classList.toggle("completed");
-          newInput.innerHTML = '<input class="complete-btn" type="checkbox" checked></input>';
-        }
-        newDiv.appendChild(newLi);
-        //Create Delete Button
-        var newDeleteButton = document.createElement("button");
-        newDeleteButton.innerHTML = '<span class="material-icons">delete_outline</span>';
-        newDeleteButton.classList.add('trash-btn')
-        newDiv.appendChild(newDeleteButton);
-        //Append to list 
-        todoList.appendChild(newDiv)
-        //Clear Todo Input Value
-        todoInput.value = "";
-        //Check Listener
-        console.log
-        newInput.addEventListener('click', function() {
-          newLi.classList.toggle('completed');
-          updateLS();
-        });
-        //Delete Listener
-        newDeleteButton.addEventListener('click', function(event) {
-          event.preventDefault();
-          const todoGlobal = newDeleteButton.parentElement;
-          todoGlobal.remove();
-          updateLS();
-        });
-
-        updateLS();
-     
+    //Create Div
+    var newDiv = document.createElement("div");;
+    newDiv.classList.add('todo');
+    //Create Input
+    var newInput = document.createElement("div");
+    newInput.innerHTML = '<input class="complete-btn" type="checkbox"></input>';
+    newDiv.appendChild(newInput);
+    //Create li
+    const newLi = document.createElement("li");
+    newLi.innerText = todo.text;
+    newLi.classList.add('todo__li');
+    if (todo && todo.completed) {
+      newLi.classList.toggle("completed");
+      newInput.innerHTML = '<input class="complete-btn" type="checkbox" checked></input>';
+    }
+    newDiv.appendChild(newLi);
+    //Create Delete Button
+    var newDeleteButton = document.createElement("button");
+    newDeleteButton.innerHTML = '<span class="material-icons">delete_outline</span>';
+    newDeleteButton.classList.add('trash-btn')
+    newDiv.appendChild(newDeleteButton);
+    //Append to list 
+    todoList.appendChild(newDiv)
+    //Clear Todo Input Value
+    todoInput.value = "";
+    //Check Listener
+    newInput.addEventListener('click', function() {
+      newLi.classList.toggle('completed');
+      updateLS();
+    });
+    //Delete Listener
+    newDeleteButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      const todoGlobal = newDeleteButton.parentElement;
+      todoGlobal.remove();
+      updateLS();
+    });
+    updateLS();
   })
 }
 
 function updateLS() {
   const todosLi = document.querySelectorAll("li");
-
   const todos = [];
-
   todosLi.forEach((newLi) => {
     todos.push({
       text: newLi.innerText,
       completed: newLi.classList.contains("completed")
     });
   });
-
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 
-function deleteAll() { 
-  localStorage.clear();
-  document.location.reload(true);
-}
+//FILTER
 
-
-
-
-
-
-function filterTodoAll() { //Filter function for all todo
-  event.preventDefault();
+function filterTodoAll(e) { //Filter function for all todo
+  e.preventDefault();
   //newDeleteButtonAll.style.display = "none";
   inputContainer.style.display = "flex";
   const todos = todoList.childNodes;
   todos.forEach(function(todo) {
-      todo.style.display = "flex";
+    todo.style.display = "flex";
   })
 }
 
-function filterTodoActive() { //Filter function for active todo
-  //newDeleteButtonAll.style.display = "none";
-  event.preventDefault();
+function filterTodoActive(e) { //Filter function for active todo
+  newDeleteButtonAll.style.display = "none";
+  e.preventDefault();
   inputContainer.style.display = "flex";
   const todos = todoList.childNodes;
   todos.forEach(function(todo) {
-        var todoChildrenLi = todo.querySelector('li');
-        if (!todoChildrenLi.classList.contains("completed")) {
-          todo.style.display = "flex";
-        } else {
-            todo.style.display = "none";
-        }
-    });
+    var todoChildrenLi = todo.querySelector('li');
+    if (!todoChildrenLi.classList.contains("completed")) {
+      todo.style.display = "flex";
+    } else {
+      todo.style.display = "none";
+    }
+  })
 }
 
-function filterTodoCompleted() { //Filter function for completed todo
-  event.preventDefault();
+function filterTodoCompleted(e) { //Filter function for completed todo
+  e.preventDefault();
   inputContainer.style.display = "none";
   const todos = todoList.childNodes;
   todos.forEach(function(todo) {
-        var todoChildrenLi = todo.querySelector('li');
-        if (todoChildrenLi.classList.contains("completed")) {
-          todo.style.display = "flex";
-        } else {
-            todo.style.display = "none";
-        }
-    });
+    var todoChildrenLi = todo.querySelector('li');
+    if (todoChildrenLi.classList.contains("completed")) {
+      todo.style.display = "flex";
+    } else {
+      todo.style.display = "none";
+    }
+  })
   if (!document.querySelector('.delete__button__all')) {
     var newDeleteButtonAll = document.createElement('div');
     main.appendChild(newDeleteButtonAll);
@@ -194,20 +177,29 @@ function filterTodoCompleted() { //Filter function for completed todo
 }
 
 
+//Button Delete All
 
-function darkMode() {
-  if(event.target.checked) {
+function deleteAll() { 
+  localStorage.clear();
+  document.location.reload(true);
+}
+
+
+//Button Dark Mode  
+
+function darkMode(e) {
+  if(e.target.checked) {
     document.body.classList.add('dark-mode');
     localStorage.setItem('mode', 'dark');
-} else {
+  } else {
     document.body.classList.remove('dark-mode');
     localStorage.removeItem('mode');
-}
+  }
 }
 
 function preferableDarkMode() { //Get user preferable mode
   if (localStorage.getItem('mode') === 'dark') {
     darkSwitcher.checked = true;
     document.body.classList.add('dark-mode');
-  };
+  }
 }
