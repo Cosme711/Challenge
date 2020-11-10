@@ -126,7 +126,7 @@ main {
 
 .completed {
     text-decoration: line-through;
-    opacity: 0.5;
+    color: #333333;
 }
 
 /* DARK MODE */
@@ -191,14 +191,3 @@ main {
     left: 20px;
 }
 
-.delete__button__all{
-    background-color: #EB5757;
-    width: 10rem;
-    height: 4rem;
-    border-radius: 4px;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-}

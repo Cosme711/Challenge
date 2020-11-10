@@ -1,22 +1,22 @@
 
 //Selectors
+
+const main = document.querySelector("main");
 const todoInput = document.querySelector('.todo__input');
+const inputContainer = document.querySelector('.todo__input__container');
 const todoButton = document.querySelector('.todo__input__button');
 const todoList = document.querySelector('.todo__list');
-const deleteAllInput = document.getElementById('deleteAll');
 const filterCompleted = document.querySelector('#completed');
 const filterActive = document.querySelector('#active');
 const filterAll = document.querySelector('#all');
-const main = document.querySelector("main");
-let darkSwitcher = document.querySelector('#dark-mode');
-const inputContainer = document.querySelector('.todo__input__container');
+const deleteAllButton = document.querySelector('.delete__button__all');
+const darkSwitcher = document.querySelector('#dark-mode');
 
 //Event Listeners
 
 document.addEventListener('DOMContentLoaded', getTodos);
 document.addEventListener('DOMContentLoaded', preferableDarkMode);
 todoButton.addEventListener('click', addTodo);
-deleteAllInput.addEventListener('click', deleteAll);
 filterCompleted.addEventListener('click', filterTodoCompleted);
 filterActive.addEventListener('click', filterTodoActive);
 filterAll.addEventListener('click', filterTodoAll);
@@ -27,8 +27,7 @@ darkSwitcher.addEventListener('change', darkMode);
 //Functions 
 
 function addTodo(e) { 
-  e.preventDefault(); //Disable Prevent Default
-
+  e.preventDefault();
   if (todoInput.value) {
     //Create Div
     var newDiv = document.createElement("div");;
@@ -63,7 +62,7 @@ function addTodo(e) {
       todoGlobal.remove();
       updateLS();
     });
-    updateLS();
+    updateLS(); //Update Local Storage
   }
 }
 
@@ -75,37 +74,29 @@ function getTodos() {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
   todos.forEach(function(todo){ 
-    //Create Div
     var newDiv = document.createElement("div");;
     newDiv.classList.add('todo');
-    //Create Input
     var newInput = document.createElement("div");
     newInput.innerHTML = '<input class="complete-btn" type="checkbox"></input>';
     newDiv.appendChild(newInput);
-    //Create li
     const newLi = document.createElement("li");
     newLi.innerText = todo.text;
     newLi.classList.add('todo__li');
-    if (todo && todo.completed) {
-      newLi.classList.toggle("completed");
+    if (todo && todo.completed) { //If in local storage it's completed
+      newLi.classList.toggle("completed"); 
       newInput.innerHTML = '<input class="complete-btn" type="checkbox" checked></input>';
     }
     newDiv.appendChild(newLi);
-    //Create Delete Button
     var newDeleteButton = document.createElement("button");
     newDeleteButton.innerHTML = '<span class="material-icons">delete_outline</span>';
     newDeleteButton.classList.add('trash-btn')
     newDiv.appendChild(newDeleteButton);
-    //Append to list 
     todoList.appendChild(newDiv)
-    //Clear Todo Input Value
     todoInput.value = "";
-    //Check Listener
     newInput.addEventListener('click', function() {
       newLi.classList.toggle('completed');
       updateLS();
     });
-    //Delete Listener
     newDeleteButton.addEventListener('click', function(event) {
       event.preventDefault();
       const todoGlobal = newDeleteButton.parentElement;
@@ -133,8 +124,11 @@ function updateLS() {
 
 function filterTodoAll(e) { //Filter function for all todo
   e.preventDefault();
-  //newDeleteButtonAll.style.display = "none";
   inputContainer.style.display = "flex";
+  if (document.querySelector('.delete__button__all')) {
+    var deleteButton = document.querySelector(".delete__button__all");
+    deleteButton.remove();
+  }
   const todos = todoList.childNodes;
   todos.forEach(function(todo) {
     todo.style.display = "flex";
@@ -142,9 +136,12 @@ function filterTodoAll(e) { //Filter function for all todo
 }
 
 function filterTodoActive(e) { //Filter function for active todo
-  newDeleteButtonAll.style.display = "none";
   e.preventDefault();
   inputContainer.style.display = "flex";
+  if (document.querySelector('.delete__button__all')) {
+    var deleteButton = document.querySelector(".delete__button__all");
+    deleteButton.remove();
+  }
   const todos = todoList.childNodes;
   todos.forEach(function(todo) {
     var todoChildrenLi = todo.querySelector('li');
@@ -173,19 +170,21 @@ function filterTodoCompleted(e) { //Filter function for completed todo
     main.appendChild(newDeleteButtonAll);
     newDeleteButtonAll.classList.add('delete__button__all');
     newDeleteButtonAll.innerHTML = "<span class='material-icons'>delete_outline</span>" + "<a>delete all</a>";
+    newDeleteButtonAll.addEventListener("click", function() {
+      const todos = todoList.childNodes;
+      todos.forEach(function(todo) {
+        var todoChildrenLi = todo.querySelector('li');
+        if (todoChildrenLi.classList.contains("completed")) {
+          todo.remove();
+          updateLS();
+        }
+      })
+    })
   }
 }
 
 
-//Button Delete All
-
-function deleteAll() { 
-  localStorage.clear();
-  document.location.reload(true);
-}
-
-
-//Button Dark Mode  
+//Dark Mode Button
 
 function darkMode(e) {
   if(e.target.checked) {
@@ -197,7 +196,7 @@ function darkMode(e) {
   }
 }
 
-function preferableDarkMode() { //Get user preferable mode
+function preferableDarkMode() { 
   if (localStorage.getItem('mode') === 'dark') {
     darkSwitcher.checked = true;
     document.body.classList.add('dark-mode');
