@@ -23,31 +23,6 @@ main {
     padding-top: 3rem;
 }
 
-@media screen and (max-width: 1200px) {
-    main {
-        width: 60%;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    main {
-        width: 80%;
-    }
-    .dark-mode-switch label {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    main {
-        width: 95%;
-    }
-    .nav__container {
-        width: 100%;
-        gap: 30px;
-    }
-}
-
 /* NAV CONTAINER */
 
 .nav__container {
@@ -67,9 +42,6 @@ main {
     font-weight: 600;
 }
 
-.nav__container a:hover {
-    border-bottom: 5px solid #2F80ED;
-}
 
 /* TODO INPUT */
 
@@ -233,3 +205,29 @@ main {
     left: 20px;
 }
 
+/* RESPONSIVE */
+
+@media screen and (max-width: 1200px) {
+    main {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    main {
+        width: 80%;
+    }
+    .dark-mode-switch label {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    main {
+        width: 95%;
+    }
+    .nav__container {
+        width: 100%;
+        gap: 30px;
+    }
+}
