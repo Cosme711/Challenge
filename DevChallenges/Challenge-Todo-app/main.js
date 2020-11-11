@@ -14,13 +14,14 @@ const darkSwitcher = document.querySelector('#dark-mode');
 
 //Event Listeners
 
-document.addEventListener('DOMContentLoaded', getTodos);
-document.addEventListener('DOMContentLoaded', preferableDarkMode);
 todoButton.addEventListener('click', addTodo);
+document.addEventListener('DOMContentLoaded', getTodos);
 filterCompleted.addEventListener('click', filterTodoCompleted);
 filterActive.addEventListener('click', filterTodoActive);
 filterAll.addEventListener('click', filterTodoAll);
+deleteAllButton.addEventListener('click', deleteAllCompleted);
 darkSwitcher.addEventListener('change', darkMode);
+document.addEventListener('DOMContentLoaded', preferableDarkMode);
 
 
 
@@ -170,6 +171,7 @@ function filterTodoCompleted(e) { //Filter function for completed todo
     main.appendChild(newDeleteButtonAll);
     newDeleteButtonAll.classList.add('delete__button__all');
     newDeleteButtonAll.innerHTML = "<span class='material-icons'>delete_outline</span>" + "<a>delete all</a>";
+    /*
     newDeleteButtonAll.addEventListener("click", function() {
       const todos = todoList.childNodes;
       todos.forEach(function(todo) {
@@ -179,8 +181,49 @@ function filterTodoCompleted(e) { //Filter function for completed todo
           updateLS();
         }
       })
-    })
+      /*
+      if (todo && todo.completed) {
+      }
+      })
+      */
+
+      
+      /*
+      var todoChildrenLiCompleted = document.getElementsByClassName('.todo__li completed');
+      console.log(todoChildrenLiCompleted);
+      for (var i = 0; i < todoChildrenLiCompleted.length; i++) {
+        console.log("hey");
+      }
+      */
+
+      /*
+      const todos = todoList.childNodes;
+      todos.forEach(function(todo) {
+        var todoChildrenLi = todo.querySelector('li');
+          var todoChildrenLiCompleted = document.getElementsByClassName('.todo__li completed');
+          console.log(todoChildrenLiCompleted);
+          for (var i = 0; i < todoChildrenLiCompleted.length; i++) {
+            console.log("hey");
+          }
+          */
+          //todo.remove();
+          //todoChildrenLi.parentElement.remove();
+          //updateLS();
+
+  
+    
   }
+}
+
+function deleteAllCompleted() {
+  const todos = todoList.childNodes;
+  todos.forEach(function(todo) {
+    var todoChildrenLi = todo.querySelector('li');
+    if (todoChildrenLi.classList.contains("completed")) {
+      todo.remove();
+      updateLS();
+    }
+  })
 }
 
 

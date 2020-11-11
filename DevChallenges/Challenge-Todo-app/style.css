@@ -1,3 +1,6 @@
+
+/* GENERAL */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,15 +13,42 @@ body {
 
 h1 {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-weight: 700;
 }
 
 main {
-    width: 50%;
+    width: 40%;
     margin: 0 auto 5rem auto;
     padding-top: 3rem;
 }
+
+@media screen and (max-width: 1200px) {
+    main {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    main {
+        width: 80%;
+    }
+    .dark-mode-switch label {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    main {
+        width: 95%;
+    }
+    .nav__container {
+        width: 100%;
+        gap: 30px;
+    }
+}
+
+/* NAV CONTAINER */
 
 .nav__container {
     width: 90%;
@@ -41,6 +71,8 @@ main {
     border-bottom: 5px solid #2F80ED;
 }
 
+/* TODO INPUT */
+
 .todo__input__container {
     margin-top: 1.5rem;
     display: flex;
@@ -55,7 +87,6 @@ main {
     padding-left: 25px;
 }
 
-
 .todo__input__container button {
     width: 120px;
     margin-left: 20px;
@@ -66,7 +97,7 @@ main {
     border-radius: 12px;
 }
 
-
+/* TODO CONTAINER */
 
 .todo__container {
     margin-top: 2rem
@@ -119,7 +150,6 @@ main {
     height: 25px;
 }
 
-
 .todo__value {
     font-size: 200px;
 }
@@ -127,6 +157,18 @@ main {
 .completed {
     text-decoration: line-through;
     color: #333333;
+}
+
+.delete__button__all{
+    background-color: #EB5757;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 4px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
 
 /* DARK MODE */
@@ -146,7 +188,7 @@ main {
 
 .dark-mode-switch {
     position: absolute;
-    right: 5%;
+    left: 5%;
     top: 5%;
     display: flex;
     align-items: center;
