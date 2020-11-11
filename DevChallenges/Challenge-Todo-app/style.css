@@ -165,7 +165,7 @@ main {
     height: 3rem;
     border-radius: 4px;
     float: right;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     color: #fff;
