@@ -43,6 +43,25 @@ main {
 }
 
 
+.active-item {
+    color: #2f80ed;
+    position: relative;
+}
+  
+.active-item:after {
+    content: '';
+    width: 60%;
+    height: 5px;
+    background-color: #2f80ed;
+    position: absolute;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+    bottom: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
 /* TODO INPUT */
 
 .todo__input__container {
