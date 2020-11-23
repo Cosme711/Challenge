@@ -1,0 +1,51 @@
+@mixin desktop {
+  @media screen and (max-width: 1200px){
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 890px){
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 500px){
+    @content;
+  }
+}
+
+
+body {
+    width: 85%;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    @include mobile {
+      width: 95%;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
