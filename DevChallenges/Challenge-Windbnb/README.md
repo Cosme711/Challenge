@@ -16,7 +16,7 @@
       Solution
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-challenge}">
+    <a href="https://devchallenges.io/solutions/DBdxn9vD9COgVlAsM8Ak">
       Challenge
     </a>
   </h3>
@@ -83,6 +83,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Contact
 
 
-- GitHub [@your-username](https://{github.com/your-usermame})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- GitHub [@Cosme711](https://github.com/Cosme711)
+
 
