@@ -12,7 +12,7 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/Cosme711/Challenge/tree/main/DevChallenges/Challenge-Windbnb">
       Solution
     </a>
     <span> | </span>
