@@ -12,45 +12,27 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/Cosme711/Challenge/tree/main/DevChallenges/Challenge-Windbnb">
+    <a href="https://devchallenges.io/solutions/a7G1uNwOUXXQHAp5KA19">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/solutions/DBdxn9vD9COgVlAsM8Ak">
+    <a href="https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8">
       Challenge
     </a>
   </h3>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-
-## Table of Contents
-
-- [Overview](#overview)
-  - [Built With](#built-with)
-- [Features](#features)
-- [How to use](#how-to-use)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
-
-<!-- OVERVIEW -->
-
 ## Overview
 
-![screenshot](https://github.com/Cosme711/Challenge/blob/main/DevChallenges/Challenge-Windbnb/screenshot.png)
+You can see my demo here : https://challenge-random-quote-generator.netlify.app/
 
-You can see my demo here : https://cosme-gressier-windbnb.netlify.app/
-
-Made with Vue3 & Sass 
-
-I use the new feature of Vue3 : CompositionAPI
+Made with Vue, Axios & Sass 
 
 
 ### Built With
 
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
-
 - [Vue.js](https://vuejs.org/)
+- [Axios](https://github.com/axios/axios)
 - [Sass](https://sass-lang.com/)
 
 ## How To Use
