@@ -31,14 +31,13 @@ export default {
             const authorURLRequest = 'https://quote-garden.herokuapp.com/api/v2/authors/{{author}}?page=1&limit=3'
             const requestURL = authorURLRequest.replace('{{author}}', this.author);
             axios.get(requestURL)
-            .then(function (response) {
+            .then((response) => {
                 self.quotes = response.data.quotes
             })  
-            .catch(function (error) {
+            .catch((error) =>{
                 console.log(error);
             })
-        },
-
+        }
     },
     created() {
         this.loadAuthorQuote();
@@ -48,8 +47,11 @@ export default {
 
 <style lang="scss">
 .author-view {
-    width: 60%;
     margin: 7rem auto 0 auto;
+    width: 60%;
+    @include tablet {
+        width: 90%;
+    }
     .random-btn {
         position: absolute;
         top: 5%;
@@ -70,19 +72,25 @@ export default {
         margin-left: 1rem;
         color: #333333;
     }
-    li {
-        list-style: none;
-        margin: 5rem 0;
-        p {
-            padding: 0 4.5rem;
-            font-size: 36px;
-            font-weight: 500;
-            border-left: 7px solid #F7DF94;
+    ul {
+        padding: 0;
+        li {
+            list-style: none;
+            margin: 5rem 0;
+            p {
+                padding: 0 4.5rem;
+                font-size: 36px;
+                font-weight: 500;
+                border-left: 7px solid #F7DF94;
+                @include tablet {
+                    font-size: 30px;
+                }
+                @include mobile {
+                    font-size: 24px;
+                    padding: 0 2rem;
+                }
+            }
         }
     }
-    @include mobile {
-        width: 90%;
-    }
-
 }
 </style>

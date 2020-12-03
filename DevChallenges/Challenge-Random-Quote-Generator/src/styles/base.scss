@@ -1,11 +1,27 @@
 /* font-family: 'Montserrat', sans-serif;
 font-family: 'Raleway', sans-serif; */
 
-@mixin mobile {
-    @media screen and (max-width: 750px){
-      @content;
-    }
+@mixin tablet {
+  @media screen and (max-width: 950px){
+    @content;
   }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 500px){
+    @content;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+#app {
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
 
 body {
     margin: 0;

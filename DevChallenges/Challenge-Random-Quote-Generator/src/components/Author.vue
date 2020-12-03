@@ -26,6 +26,12 @@ export default {
   margin: auto;
   padding: 2rem;
   margin-top: 7rem;
+  @include tablet {
+    width: 70%;
+  }
+  @include mobile {
+    margin-top: 2rem;
+  }
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,6 +45,9 @@ export default {
     font-weight: bold;
     font-size: 27px;
     line-height: 28px;
+    @include mobile {
+      font-size: 20px;
+    }
   }
   .genre {
     margin: 0.5rem auto 0 auto;
@@ -47,10 +56,6 @@ export default {
   span {
     font-size: 3rem;
     color: white;
-  }
-  @include mobile {
-    width: 70%;
-    font-size: 21px;
   }
 }
 </style>

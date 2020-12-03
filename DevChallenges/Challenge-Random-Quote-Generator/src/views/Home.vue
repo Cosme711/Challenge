@@ -25,12 +25,13 @@ export default {
     randomQuote() {
       var self = this;
       axios.get('https://quote-garden.herokuapp.com/api/v2/quotes/random')
-        .then(function (response) {
-          console.log(response)
+        .then((response) => {
           self.text = response.data.quote.quoteText;
           self.author = response.data.quote.quoteAuthor
           self.genre = response.data.quote.quoteGenre
-          console.log(response)
+        })
+        .catch((error) => {
+          console.log(error)
         })
     },
   },
@@ -43,6 +44,9 @@ export default {
 <style lang="scss">
 main {
   margin-top: 13rem;
+  @include tablet {
+    margin-top: 9rem;
+  }
   .text {
     width: 40%;
     margin: auto;
@@ -50,13 +54,14 @@ main {
     font-size: 36px;
     font-weight: 500;
     border-left: 7px solid #F7DF94;
-    @include mobile {
+    @include tablet {
       width: 70%;
       font-size: 30px;
     }
-  }
-  @include mobile {
-    margin-top: 9rem;
+    @include mobile {
+      font-size: 24px;
+      padding-left: 2rem;
+    }
   }
 }
 </style>

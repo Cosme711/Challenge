@@ -5,12 +5,6 @@
     </div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style lang="scss">
 .random-btn {
     position: absolute;
