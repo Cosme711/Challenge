@@ -1,42 +1,46 @@
 <template>
-  <main v-if="text">
+  <main v-show="state.content">
     <RandomButton @click="randomQuote"/>
-    <p class="text">"{{ this.text }}"</p>
-    <Author :author="this.author" :genre="this.genre"/>
+    <p class="content">"{{ state.content }}"</p>
+    <Author :author="state.author" :genre="state.genre"/>
   </main>
 </template>
 
 <script>
-import axios from'axios'
 import Author from'@/components/Author'
 import RandomButton from '@/components/RandomButton'
+import { reactive, onMounted } from 'vue';
+import axios from'axios'
 
 export default {
   name: 'Home',
   components: { Author, RandomButton },
-  data: function() {
-    return {
-      text: '',
+  setup() {
+
+    const state = reactive({
+      content: '',
       author: '',
       genre: ''
-    }
-  },
-  methods: {
-    randomQuote() {
-      var self = this;
+    })
+
+    function randomQuote() {
       axios.get('https://quote-garden.herokuapp.com/api/v2/quotes/random')
         .then((response) => {
-          self.text = response.data.quote.quoteText;
-          self.author = response.data.quote.quoteAuthor
-          self.genre = response.data.quote.quoteGenre
+          state.content = response.data.quote.quoteText;
+          state.author = response.data.quote.quoteAuthor
+          state.genre = response.data.quote.quoteGenre
         })
         .catch((error) => {
           console.log(error)
         })
-    },
-  },
-  created() {
-    this.randomQuote();
+    }
+
+    onMounted(() => randomQuote())
+
+    return {
+      state,
+      randomQuote
+    }
   }
 }
 </script>
@@ -47,7 +51,7 @@ main {
   @include tablet {
     margin-top: 9rem;
   }
-  .text {
+  .content {
     width: 40%;
     margin: auto;
     padding-left: 4.5rem;

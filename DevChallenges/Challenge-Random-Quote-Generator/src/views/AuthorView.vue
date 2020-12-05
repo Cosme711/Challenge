@@ -3,9 +3,9 @@
       <router-link to="/">
             <RandomButton />
       </router-link>
-    <h2>{{ author }}</h2>
+    <h3>{{ authorName }}</h3>
     <ul>
-        <li v-for="quote in this.quotes" :key="quote.id">
+        <li v-for="quote in state.quotes" :key="quote.id">
             <p>"{{quote.quoteText}}"</p>
         </li>
     </ul>
@@ -14,33 +14,45 @@
 
 <script>
 import RandomButton from '@/components/RandomButton'
+import { reactive, computed, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import axios from'axios'
 
 export default {
     name: 'Author',
     components: { RandomButton },
-    data: function() {
-        return {
-            author: this.$route.params.id,
-            quotes: []
-        }
-    },
-    methods: {
-        loadAuthorQuote() {
-            var self = this;
+    setup() {
+
+        const state = reactive({
+            quotes: [],
+        })
+
+        const route = useRoute();
+
+        function loadAuthorQuote() {
             const authorURLRequest = 'https://quote-garden.herokuapp.com/api/v2/authors/{{author}}?page=1&limit=3'
-            const requestURL = authorURLRequest.replace('{{author}}', this.author);
+            const requestURL = authorURLRequest.replace('{{author}}', route.params.author);
             axios.get(requestURL)
             .then((response) => {
-                self.quotes = response.data.quotes
+                state.quotes = response.data.quotes
             })  
             .catch((error) =>{
                 console.log(error);
             })
         }
-    },
-    created() {
-        this.loadAuthorQuote();
+
+        onMounted( () => loadAuthorQuote())
+
+        
+        const authorName = computed( () => {
+            return route.params.author
+        })
+
+        return {
+            state,
+            authorName,
+        }
+
     }
 }
 </script>
