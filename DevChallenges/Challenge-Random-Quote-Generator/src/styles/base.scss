@@ -1,11 +1,38 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif; */
+
 @mixin tablet {
-    @media screen and (max-width: 950px){
-      @content;
-    }
+  @media screen and (max-width: 950px){
+    @content;
   }
-  
-  @mixin mobile {
-    @media screen and (max-width: 500px){
-      @content;
-    }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 500px){
+    @content;
   }
+}
+
+html {
+  height: 100%;
+}
+
+#app {
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
