@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/author/${author}`">
+  <router-link :to="`/${author}`">
     <div class="informations">
       <div class="informations__content">
         <p class="author">{{ author }}</p>

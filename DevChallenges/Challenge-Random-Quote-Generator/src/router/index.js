@@ -9,10 +9,10 @@ const routes = [
     component: Home
   },
   {
-    path: '/author/:id',
+    path: '/:author',
     name: 'AuthorView',
     component: AuthorView
-  }
+  },
 ]
 
 const router = createRouter({

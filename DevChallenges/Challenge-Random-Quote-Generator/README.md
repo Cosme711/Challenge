@@ -1,5 +1,3 @@
-<!-- Please update value in the {}  -->
-
 <h1 align="center">Random Quote Generator</h1>
 
 <div align="center">
@@ -66,5 +64,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 - GitHub [@Cosme711](https://github.com/Cosme711)
-
-
