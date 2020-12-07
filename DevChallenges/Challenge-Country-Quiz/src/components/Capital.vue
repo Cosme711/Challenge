@@ -1,13 +1,15 @@
 <template>
   <div>
-    <p class="font-bold text-blue-900 pb-4 text-2xl mr-6">
+    <p
+      class="font-bold text-blue-900 pb-4 text-sm sm:text-xl md:text-2xl mr-6 mt-2"
+    >
       {{ question }}
     </p>
     <div class="mx-0">
       <p
         v-for="answer in answers"
         :key="answer.id"
-        class="text-lg border-2 border-solid rounded-lg p-2 px-18 pl-3 m-2 mx-0 mb-5 cursor-pointer hover:text-white hover:border-none hover:bg-yellow-500 hover:border-opacity-0 text-purple-500 hover:bg-orange-500 border-purple-500 flex flex-row"
+        class="text-sm sm:text-xl md:text-lg border-2 border-solid rounded-lg p-2 px-18 pl-3 m-2 mx-0 mb-5 cursor-pointer hover:text-white hover:border-none hover:bg-yellow-500 hover:border-opacity-0 text-purple-500 hover:bg-orange-500 border-purple-500 flex flex-row"
         :class="{
           correct: answer.isCorrect && state.pickedAnswer,
           incorrect: !answer.isCorrect && state.pickedAnswer === answer,
@@ -20,7 +22,7 @@
     </div>
     <div class="flex justify-end">
       <button
-        class="rounded-lg bg-yellow-500 px-6 py-2 text-white font-extrabold text-lg"
+        class="rounded-lg bg-yellow-500 px-6 py-2 text-white font-extrabold text-lg focus:outline-none"
         @click="nextQuestion()"
       >
         Next

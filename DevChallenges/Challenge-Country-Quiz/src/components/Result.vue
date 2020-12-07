@@ -12,7 +12,7 @@
       correct <span v-if="score > 1">answers</span> <span v-else>answer</span>
     </p>
     <button
-      class="border-2 font-bold text-center text-blue-900 border-blue-900 hover:bg-blue-900 hover:text-white rounded-lg py-3 px-10 text-base"
+      class="border-2 font-bold text-center text-blue-900 border-blue-900 hover:bg-yellow-500 hover:border-yellow-500 hover:text-white focus:outline-none rounded-lg py-3 px-10 text-base"
       @click="tryAgain"
     >
       Try again
