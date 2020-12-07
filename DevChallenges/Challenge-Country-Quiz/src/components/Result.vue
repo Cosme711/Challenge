@@ -1,10 +1,6 @@
 <template>
   <div class="text-center my-4 mx-4">
-    <img
-      class="winners mb-8"
-      src="@/assets/images/undraw_winners_ao2o 2.svg"
-      alt=""
-    />
+    <img class="winners mb-8" src="@/assets/images/winner.svg" alt="" />
     <h1
       class="capitalize text-5xl text-center mb-1 font-extrabold text-blue-900"
     >
@@ -25,27 +21,25 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { useStore } from "vuex";
+import { useState } from "@/helpers";
+
 export default {
-  data() {
+  setup() {
+    const { score } = useState(["score"]);
+
+    const store = useStore();
+
+    function tryAgain() {
+      store.commit("CHANGE_TYPE_MODAL", "flag");
+      store.commit("RESET_SCORE", 0);
+      store.commit("RESET_COUNTER_QUESTION", 0);
+    }
+
     return {
-      gameOver: null
+      score,
+      tryAgain
     };
-  },
-  computed: mapState({
-    score: state => state.score
-  }),
-  watch: {
-    gameOver: function() {
-      this.$emit("resetGame", this.gameOver);
-    }
-  },
-  methods: {
-    tryAgain() {
-      this.$store.dispatch("resetGame");
-      this.$store.dispatch("generateQuestion");
-      this.gameOver = false;
-    }
   }
 };
 </script>

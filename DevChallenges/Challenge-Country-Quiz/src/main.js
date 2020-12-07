@@ -1,14 +1,10 @@
-import Vue from 'vue'
-import App from './App.vue'
-import "./registerServiceWorker";
-import store from './store'
+import { createApp } from "vue";
+import App from "./App.vue";
+import store from "./store";
 import "@/assets/css/tailwind.scss";
-import router from './router'
+import router from "./router";
 
-Vue.config.productionTip = false
-
-new Vue({
-  store,
-  router,
-  render: h => h(App)
-}).$mount('#app')
+createApp(App)
+  .use(router)
+  .use(store)
+  .mount("#app");

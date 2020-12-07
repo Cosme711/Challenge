@@ -1,23 +1,14 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import axios from "axios";
+import { createStore } from "vuex";
 
-const instance = axios.create({
-  baseURL: "https://restcountries.eu/rest/v2"
-});
-
-Vue.prototype.$http = instance;
-
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   state: {
     countries: [],
-    score: 0,
-    answers: [],
     question: "",
-    answerLetters: ["A", "B", "C", "D"],
-    flagUrl: ""
+    answers: [],
+    flagUrl: "",
+    typeOfModal: "flag",
+    counterOfQuestion: "",
+    score: 0
   },
   getters: {
     correctAns: state => {
@@ -28,39 +19,59 @@ export default new Vuex.Store({
     SAVE_COUNTRIES(state, countries) {
       state.countries = countries;
     },
-    GENERATE_ANSWERS(state, answers) {
-      state.answers = answers;
-    },
     GENERATE_QUESTION(state, question) {
       state.question = question;
     },
-    INCREMENT_SCORE(state) {
-      state.score++;
+    GENERATE_ANSWERS(state, answers) {
+      state.answers = answers;
     },
     FLAG_URL(state, flagUrl) {
       state.flagUrl = flagUrl;
     },
-    RESET_GAME(state) {
-      state.score = 0;
+    CHANGE_TYPE_MODAL(state, type) {
+      state.typeOfModal = type;
+    },
+    INCREMENT_COUNTER_QUESTION(state) {
+      state.counterOfQuestion++;
+    },
+    RESET_COUNTER_QUESTION(state, number) {
+      state.counterOfQuestion = number;
+    },
+    INCREMENT_SCORE(state) {
+      state.score++;
+    },
+    RESET_SCORE(state, number) {
+      state.score = number;
     }
   },
   actions: {
-    incrementScore({ commit }) {
-      commit("INCREMENT_SCORE");
-    },
-    resetGame({ commit }) {
-      commit("RESET_GAME");
-    },
     getCountries({ commit, dispatch }) {
-      Vue.prototype.$http
-        .get("all?fields=name;capital;flag")
+      const axios = require("axios");
+      axios
+        .get("https://restcountries.eu/rest/v2/all?fields=name;capital;flag")
         .then(result => {
           commit("SAVE_COUNTRIES", result.data);
           dispatch("generateQuestion");
         })
         .catch(error => {
-          throw new Error(`API ${error}`);
+          console.log(error);
         });
+    },
+    generateQuestion({ commit, dispatch }) {
+      let countries = this.state.countries;
+      let randNum = Math.floor(Math.random() * countries.length);
+      let randomCapital = countries[randNum].capital;
+      let randCountry = countries[randNum];
+      let question = `${randomCapital} is the capital of`;
+
+      commit("GENERATE_QUESTION", question);
+      dispatch("generateFlagUrl", randCountry);
+
+      countries.forEach(Element => {
+        if (randomCapital === Element.capital) {
+          this.dispatch("getAnswers", Element.name);
+        }
+      });
     },
     getAnswers({ commit }, correctAns) {
       let answers = [];
@@ -91,29 +102,15 @@ export default new Vuex.Store({
 
       commit("GENERATE_ANSWERS", shuffle(answers));
     },
-    generateQuestion({ commit, dispatch }) {
-      let countries = this.state.countries;
-      let randNum = Math.floor(Math.random() * countries.length);
-      let randomCapital = countries[randNum].capital;
-      let randCountry = countries[randNum];
-      let question = `${randomCapital} is the capital of`;
-
-      if (typeof randNum !== "undefined") {
-        commit("GENERATE_QUESTION", question);
-        dispatch("generateFlagUrl", randCountry);
-
-        countries.forEach(Element => {
-          if (randomCapital === Element.capital) {
-            dispatch("getAnswers", Element.name);
-          }
-        });
-      }
-    },
     generateFlagUrl({ commit }, randCountry) {
       let randomFlag = randCountry.flag;
 
       commit("FLAG_URL", randomFlag);
+    },
+    countBeforeEnd({ commit }) {
+      if (this.state.counterOfQuestion >= 5) {
+        commit("CHANGE_TYPE_MODAL", "result");
+      }
     }
-  },
-  modules: {}
+  }
 });

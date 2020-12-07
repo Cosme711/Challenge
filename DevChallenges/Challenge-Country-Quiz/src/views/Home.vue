@@ -4,90 +4,34 @@
       Country Quiz
     </h1>
     <img
-      v-if="!gameOver"
+      v-if="typeOfModal === 'flag' || typeOfModal === 'capital'"
       class="test absolute"
-      src="@/assets/images/undraw_adventure_4hum 1.svg"
+      src="@/assets/images/inGame.svg"
       alt=""
     />
-    <div class="round bg-gray-200 max-w-sm overflow-hidden px-12">
-      <div class="py-8 pt-8">
-        <Capital
-          v-if="!gameOver && component == 0"
-          :key="capital"
-          @correct="correctValue"
-        ></Capital>
-        <Flag
-          v-if="!gameOver && component == 1"
-          :key="flag"
-          @correct="correctValue"
-        ></Flag>
-
-        <Result v-if="gameOver" @resetGame="gameOverValue"></Result>
-        <div class="flex justify-end">
-          <button
-            v-show="count == true"
-            class="rounded-lg bg-yellow-500 px-6 py-2 text-white font-extrabold text-lg"
-            @click="nextQuestion"
-          >
-            Next
-          </button>
-          <button
-            v-show="count == 'incorrect'"
-            class="rounded-lg bg-yellow-500 px-6 py-2 text-white font-extrabold text-lg"
-            @click="showScore"
-          >
-            Next
-          </button>
-        </div>
-      </div>
+    <div class="round bg-gray-200 max-w-sm overflow-hidden py-7 px-12">
+      <Flag v-if="typeOfModal === 'flag'" />
+      <Capital v-if="typeOfModal === 'capital'" />
+      <Result v-if="typeOfModal === 'result'" />
     </div>
   </div>
 </template>
-
 
 <script>
 import Capital from "@/components/Capital.vue";
 import Flag from "@/components/Flag.vue";
 import Result from "@/components/Result.vue";
+import { useState } from "@/helpers";
+
 export default {
   name: "Quiz",
-  components: {
-    Capital,
-    Result,
-    Flag
-  },
-  data() {
-    return {
-      count: false,
-      flag: 1,
-      capital: 0,
-      gameOver: false,
-      component: 0
-    };
-  },
+  components: { Capital, Flag, Result },
+  setup() {
+    const { typeOfModal } = useState(["typeOfModal"]);
 
-  mounted: function() {
-    this.$store.dispatch("getCountries");
-  },
-  methods: {
-    nextQuestion() {
-      this.$forceUpdate();
-      this.component = Math.floor(Math.random() * 2);
-      this.$store.dispatch("generateQuestion");
-      this.flag += 1;
-      this.capital += 1;
-      this.count = false;
-    },
-    correctValue: function(params) {
-      this.count = params;
-    },
-    showScore() {
-      this.gameOver = true;
-      this.count = null;
-    },
-    gameOverValue: function(params) {
-      this.gameOver = params;
-    }
+    return {
+      typeOfModal
+    };
   }
 };
 </script>

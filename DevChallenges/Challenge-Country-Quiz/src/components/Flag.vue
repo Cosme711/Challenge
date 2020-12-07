@@ -6,59 +6,81 @@
     </p>
     <div>
       <p
-        v-for="(answer, index) in answers"
-        :key="index"
-        class=" text-lg border-2 border-solid rounded-lg p-2 px-18 pl-3 m-2 mx-0 mb-5 cursor-pointer hover:text-white hover:bg-yellow-500 hover:border-opacity-0 text-purple-500 hover:bg-orange-500 border-purple-500 flex flex-row"
+        v-for="answer in answers"
+        :key="answer.id"
+        class="text-lg border-2 border-solid rounded-lg p-2 px-18 pl-3 m-2 mx-0 mb-5 cursor-pointer hover:text-white hover:border-none hover:bg-yellow-500 hover:border-opacity-0 text-purple-500 hover:bg-orange-500 border-purple-500 flex flex-row"
         :class="{
-          correct: answer.isCorrect && pickedAnswer,
-          incorrect: !answer.isCorrect && pickedAnswer === answer,
-          disabled:
-            (!answer.isCorrect || answer.isCorrect) && correctAnswer !== null
+          correct: answer.isCorrect && state.pickedAnswer,
+          incorrect: !answer.isCorrect && state.pickedAnswer === answer,
+          disabled: state.disabled === true
         }"
         @click="selectAnswer(answer)"
       >
-        <span class="pr-4 text-2xl font-medium">
-          {{ answerLetters[index] }}
-        </span>
         <span class="flex items-center">{{ answer.Ans }}</span>
       </p>
+    </div>
+    <div class="flex justify-end">
+      <button
+        class="rounded-lg bg-yellow-500 px-6 py-2 text-white font-extrabold text-lg"
+        @click="nextQuestion()"
+      >
+        Next
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { reactive, onMounted } from "vue";
+import { useStore } from "vuex";
+import { useState, useGetters } from "@/helpers";
+
 export default {
   name: "Flag",
-  data: function() {
-    return {
+  setup() {
+    const { answers } = useState(["answers"]);
+    const { flagUrl } = useState(["flagUrl"]);
+    const { correctAns } = useGetters(["correctAns"]);
+
+    const state = reactive({
       correctAnswer: null,
       pickedAnswer: null,
-      count: false
-    };
-  },
+      disabled: false
+    });
 
-  computed: mapState({
-    answerLetters: state => state.answerLetters,
-    flagUrl: state => state.flagUrl,
-    answers: state => state.answers
-  }),
-  watch: {
-    count: function() {
-      this.$emit("correct", this.count);
-    }
-  },
-  methods: {
-    selectAnswer(answer) {
-      this.pickedAnswer = answer;
-      this.correctAnswer = this.$store.getters.correctAns[0].Ans;
-      if (answer.Ans === this.correctAnswer) {
-        this.$store.dispatch("incrementScore");
-        this.count = true;
-      } else {
-        this.count = "incorrect";
+    const store = useStore();
+
+    function selectAnswer(answer) {
+      state.pickedAnswer = answer;
+      state.correctAnswer = correctAns;
+      state.disabled = true;
+      if (answer.Ans === state.correctAnswer[0].Ans) {
+        store.commit("INCREMENT_SCORE");
       }
     }
+
+    function nextQuestion() {
+      if (state.pickedAnswer) {
+        state.pickedAnswer = null;
+        store.commit("CHANGE_TYPE_MODAL", "capital");
+        store.commit("INCREMENT_COUNTER_QUESTION");
+        store.dispatch("countBeforeEnd");
+        store.dispatch("generateQuestion");
+        state.disabled = false;
+      }
+    }
+
+    onMounted(() => {
+      store.dispatch("getCountries");
+    });
+
+    return {
+      answers,
+      flagUrl,
+      state,
+      selectAnswer,
+      nextQuestion
+    };
   }
 };
 </script>
@@ -71,6 +93,10 @@ export default {
 
 .mt-3px {
   margin-top: 3px;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .correct {
