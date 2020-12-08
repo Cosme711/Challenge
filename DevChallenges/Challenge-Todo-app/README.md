@@ -28,7 +28,7 @@
 
 Hi everyone ;) 
 
-Todo App in Vanilla Javascript 
+Todo App in Javascript 
 
 You can see my demo here : https://cosme-gressier-todo-app.netlify.app/
 
