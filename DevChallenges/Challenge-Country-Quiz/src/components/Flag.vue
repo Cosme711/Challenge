@@ -10,7 +10,7 @@
       <p
         v-for="answer in answers"
         :key="answer.id"
-        class="text-sm sm:text-xl md:text-lg border-2 border-solid rounded-lg p-2 px-18 pl-3 m-2 mx-0 mb-5 cursor-pointer hover:text-white hover:border-none hover:bg-yellow-500 hover:border-opacity-0 text-purple-500 hover:bg-orange-500 border-purple-500 flex flex-row"
+        class="text-sm leading-10 sm:text-xl md:text-lg border-2 border-solid rounded-lg p-2 px-18 pl-3 m-2 mx-0 mb-5 cursor-pointer hover:text-white hover:border-none hover:bg-yellow-500 hover:border-opacity-0 text-purple-500 hover:bg-orange-500 border-purple-500 flex flex-row"
         :class="{
           correct: answer.isCorrect && state.pickedAnswer,
           incorrect: !answer.isCorrect && state.pickedAnswer === answer,
@@ -18,7 +18,7 @@
         }"
         @click="selectAnswer(answer)"
       >
-        <span class="flex items-center">{{ answer.Ans }}</span>
+        <span class="flex items-center ml-2">{{ answer.Ans }}</span>
       </p>
     </div>
     <div class="flex justify-end">

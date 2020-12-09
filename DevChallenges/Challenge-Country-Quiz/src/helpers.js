@@ -12,9 +12,3 @@ export function useGetters(arr) {
   const keypair = arr.map(g => [g, computed(() => store.getters[g])]);
   return Object.fromEntries(keypair);
 }
-
-export function useMutations(arr) {
-  const store = useStore();
-  const keypair = arr.map(m => [m, input => store.commit(m, input)]);
-  return Object.fromEntries(keypair);
-}

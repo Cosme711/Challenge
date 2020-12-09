@@ -20,7 +20,7 @@
         {{ answer.Ans }}
       </p>
     </div>
-    <div class="flex justify-end">
+    <div class="flex justify-end ml-2">
       <button
         class="rounded-lg bg-yellow-500 px-6 py-2 text-white font-extrabold text-lg focus:outline-none"
         @click="nextQuestion()"
