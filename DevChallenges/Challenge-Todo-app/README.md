@@ -24,11 +24,7 @@
 
 ## Overview
 
-![screenshot](https://github.com/Cosme711/Challenge/blob/main/DevChallenges/Challenge-Todo-app/screenshot.png)
-
-Hi everyone ;) 
-
-Todo App in Javascript 
+A simple Todo App build with CompositionAPI and Tailwind in Vue3
 
 You can see my demo here : https://cosme-gressier-todo-app.netlify.app/
 
@@ -40,9 +36,28 @@ You can see my demo here : https://cosme-gressier-todo-app.netlify.app/
 
 - [HTML]
 - [CSS]
-- [JavaScript]
+- [Vue3]
+- [TailwindCSS]
+
+
+## How To Use
+
+<!-- Example: -->
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/your-user-name/your-project-name
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm start
+```
+
 
 ## Contact
 
 - GitHub [@Cosme711](https://github.com/Cosme711)
-
