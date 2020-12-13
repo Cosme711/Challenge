@@ -34,8 +34,6 @@ You can see my demo here : https://cosme-gressier-todo-app.netlify.app/
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
-- [HTML]
-- [CSS]
 - [Vue3]
 - [TailwindCSS]
 

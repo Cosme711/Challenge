@@ -5,7 +5,8 @@ module.exports = {
     colors: {
       black: "#414656",
       white: "#A6ABBD",
-      blue: "#1E2331"
+      blue: "#1E2331",
+      whiteblue: "#60A5FA"
     },
     fontFamily: {
       'body': ['Padauk', 'sans-serif'],
@@ -16,7 +17,6 @@ module.exports = {
       animation :{
         addTodo: "addTodo 0.4s ease",
         completeTodo: "completeTodo 0.7s forwards",
-        deleteTodo: "deleteTodo 0.7s forwards",
       },
       keyframes: {
         'addTodo': {
