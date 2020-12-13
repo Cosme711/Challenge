@@ -20,8 +20,8 @@ module.exports = {
       },
       keyframes: {
         'addTodo': {
-          '0%' : { transform: "translatex(-40rem)" },
-          '100%' : { transform: "translateY(0rem)" }
+          '0%' : { transform: "translateX(-40rem)" },
+          '100%' : { transform: "translateX(0rem)" }
         },
         'completeTodo': {
           '0%' : { opacity: "1", textDecoration: "none"},
