@@ -11,7 +11,6 @@ export default createStore({
       location: {
         default: "paris",
         woeid: "",
-        query: "",
         position: {}
       },
       weather: {
@@ -45,9 +44,6 @@ export default createStore({
     },
     SEARCH_MODAL(state, boolean) {
       state.searchModal = boolean
-    },
-    SAVE_QUERY(state, query) {
-      state.current.location.query = query
     },
     SAVE_TEMP_F(state, number) {
       state.current.weather.temp_fahrenheit = number

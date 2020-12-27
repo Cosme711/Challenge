@@ -3,8 +3,8 @@
         <p class="mt-4 text-white text-center">{{ dateConvert }}</p>
         <img :src="weatherImage(day.weather_state_name)" :alt="day.weather_state_name" class="w-4/6 m-auto">
         <div class="my-4 flex justify-center">
-            <p class="mr-2 text-white">{{ minTemperature }}</p>
-            <p class="ml-2 text-grey">{{ maxTemperature }}</p>
+            <p class="mr-2 text-lg text-white">{{ minTemperature }}</p>
+            <p class="ml-2 text-lg text-grey">{{ maxTemperature }}</p>
         </div>
     </div>
 </template>
