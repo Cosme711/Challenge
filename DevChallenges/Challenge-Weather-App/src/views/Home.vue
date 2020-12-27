@@ -19,7 +19,7 @@ export default {
     const store = useStore();
 
     onMounted(() => {
-      store.dispatch("getUserLocations");
+      store.dispatch("getDefaultLocation");
     });
 
   }

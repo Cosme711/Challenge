@@ -9,6 +9,7 @@ export default createStore({
     },
     current: {
       location: {
+        default: "paris",
         woeid: "",
         query: "",
         position: {}
@@ -56,8 +57,8 @@ export default createStore({
     }
    },
   actions: {
-    getLocationByQuery({ commit, dispatch, state }) {
-      axios.get(`${state.api.corsURL}/${state.api.apiURL}/search/?query=${state.current.location.query}`)
+    getDefaultLocation({ commit, dispatch, state }) {
+      axios.get(`${state.api.corsURL}/${state.api.apiURL}/search/?query=${state.current.location.default}`)
       .then(result => {
         commit("SAVE_WOEID", result.data[0].woeid);
         dispatch("getInfos");
