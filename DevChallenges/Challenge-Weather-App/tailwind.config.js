@@ -8,6 +8,7 @@ module.exports = {
       darkgrey: "#88869D",
       purple: "#3C47E9",
       yellow: "#FFEC65",
+      red: "#f56565",
       footer: "#616475"
     },
     screen: {

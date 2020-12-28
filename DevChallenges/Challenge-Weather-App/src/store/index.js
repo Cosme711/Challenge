@@ -24,7 +24,8 @@ export default createStore({
     },
     forecast: {},
     searchModal: false,
-    isCelcius: true
+    isCelcius: true,
+    error: false
   },
   mutations: {
     SAVE_COORDS(state, coords) {
@@ -50,6 +51,9 @@ export default createStore({
     },
     IS_CELCIUS(state, boolean) {
       state.isCelcius = boolean
+    },
+    CHANGE_ERROR(state, boolean) {
+      state.error = boolean
     }
    },
   actions: {
@@ -58,9 +62,11 @@ export default createStore({
       .then(result => {
         commit("SAVE_WOEID", result.data[0].woeid);
         dispatch("getInfos");
+        commit("CHANGE_ERROR", false);
       })
       .catch(error => {
         console.log(error)
+        commit("CHANGE_ERROR", true);
       })
     },
     getUserLocations({ commit, dispatch }) {
@@ -80,9 +86,11 @@ export default createStore({
       .then(result => {
         commit("SAVE_WOEID", result.data[0].woeid);
         dispatch("getInfos");
+        commit("CHANGE_ERROR", false);
       })
       .catch(error => {
         console.log(error);
+        commit("CHANGE_ERROR", true);
       })
     },
     getInfos({ commit, dispatch, state}) {
@@ -91,10 +99,12 @@ export default createStore({
         commit("SAVE_CITY", result.data.title);
         commit("SAVE_CURRENT", result.data.consolidated_weather[0]);
         commit("SAVE_FORECAST", result.data.consolidated_weather.splice(1));
+        commit("CHANGE_ERROR", false);
         dispatch("convertToF");
       })
       .catch(error => {
         console.log(error);
+        commit("CHANGE_ERROR", true);
       })
     },
     convertToF({ commit, state}) {
