@@ -30,11 +30,11 @@ export default {
         const route = useRoute();
 
         function loadAuthorQuote() {
-            const authorURLRequest = 'https://quote-garden.herokuapp.com/api/v2/authors/{{author}}?page=1&limit=3'
+            const authorURLRequest = 'https://quote-garden.herokuapp.com/api/v3/quotes?{{author}}?page=1&limit=3'
             const requestURL = authorURLRequest.replace('{{author}}', route.params.author);
             axios.get(requestURL)
             .then((response) => {
-                state.quotes = response.data.quotes
+                state.quotes = response.data.data
             })  
             .catch((error) =>{
                 console.log(error);

@@ -22,16 +22,16 @@
 
 ## Overview
 
-You can see my demo here : https://challenge-random-quote-generator.netlify.app/
+Built with Vue3 & Sass !
 
-Made with Vue, Axios & Sass 
+If you have any improvements do not hesitate to give me a feedback ;) 
 
 
 ### Built With
 
 - [Vue.js](https://vuejs.org/)
-- [Axios](https://github.com/axios/axios)
 - [Sass](https://sass-lang.com/)
+- [Axios](https://github.com/axios/axios)
 
 ## How To Use
 
@@ -56,11 +56,8 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 
 ## Contact
 
-
-- GitHub [@Cosme711](https://github.com/Cosme711)
+- Twitter [@Cosme711](https://github.com/Cosme711)
+- GitHub [@GressierCosme1](https://twitter.com/GressierCosme1)

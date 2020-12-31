@@ -24,11 +24,11 @@ export default {
     })
 
     function randomQuote() {
-      axios.get('https://quote-garden.herokuapp.com/api/v2/quotes/random')
+      axios.get('https://quote-garden.herokuapp.com/api/v3/quotes/random')
         .then((response) => {
-          state.content = response.data.quote.quoteText;
-          state.author = response.data.quote.quoteAuthor
-          state.genre = response.data.quote.quoteGenre
+          state.content = response.data.data[0].quoteText;
+          state.author = response.data.data[0].quoteAuthor
+          state.genre = response.data.data[0].quoteGenre
         })
         .catch((error) => {
           console.log(error)
