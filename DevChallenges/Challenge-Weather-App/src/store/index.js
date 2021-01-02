@@ -1,7 +1,9 @@
 import { createStore } from 'vuex';
+import createPersistedState from "vuex-persistedstate";
 import axios from 'axios';
 
 export default createStore({
+  plugins: [createPersistedState()],
   state: {
     api: {
       apiURL: "https://www.metaweather.com/api/location",
@@ -9,6 +11,7 @@ export default createStore({
     },
     current: {
       location: {
+        cityName: "",
         default: "paris",
         woeid: "",
         position: {}
@@ -25,7 +28,7 @@ export default createStore({
     forecast: {},
     searchModal: false,
     isCelcius: true,
-    error: false
+    isError: false
   },
   mutations: {
     SAVE_COORDS(state, coords) {
@@ -40,20 +43,20 @@ export default createStore({
     SAVE_CURRENT(state, current) {
       state.current.weather = current
     },
+    SAVE_TEMP_F(state, number) {
+      state.current.weather.temp_fahrenheit = number
+    },
     SAVE_FORECAST(state, infos) {
       state.forecast = infos
     },
     SEARCH_MODAL(state, boolean) {
       state.searchModal = boolean
     },
-    SAVE_TEMP_F(state, number) {
-      state.current.weather.temp_fahrenheit = number
-    },
     IS_CELCIUS(state, boolean) {
       state.isCelcius = boolean
     },
     CHANGE_ERROR(state, boolean) {
-      state.error = boolean
+      state.isError = boolean
     }
    },
   actions: {
@@ -109,9 +112,8 @@ export default createStore({
     },
     convertToF({ commit, state}) {
       const temp = state.current.weather.the_temp;
-      var today = ((temp * 9/5) + 32);
+      const today = ((temp * 9/5) + 32);
       commit("SAVE_TEMP_F", today)
     }
   }
 })
-
