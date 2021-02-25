@@ -26,7 +26,7 @@
 
 ## Overview
 
-![screenshot](https://github.com/Cosme711/portfolio/blob/master/screenshot.png)
+![screenshot](https://github.com/Cosme711/Challenge/blob/main/DevChallenges/Challenge-Portfolio/screenshot.png)
 
 ### Built With
 
